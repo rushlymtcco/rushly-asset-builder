@@ -256,6 +256,94 @@ body {
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ============================================================
+   VARIANT B — IMAGE-FORWARD / MINIMAL
+   Big photo, small lockup, one short headline, the URL. No chips,
+   no subcopy. Use the .variant--photo class on .post and the .vp
+   structure (see *-minimal.html files).
+   ============================================================ */
+.variant--photo .vp {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.vp__photo { flex: 1; min-height: 0; overflow: hidden; }
+.vp__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.vp__panel {
+  flex: none;
+  background: linear-gradient(140deg, var(--navy) 0%, var(--navy2) 100%);
+  padding: calc(var(--pad) * 0.78) var(--pad) calc(var(--pad) * 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap) * 0.55);
+  position: relative;
+  overflow: hidden;
+}
+.vp__panel::after {
+  content: '';
+  position: absolute;
+  top: -40%; right: -8%;
+  width: 36%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(214, 171, 127, 0.08);
+}
+.vp__panel > * { position: relative; z-index: 1; }
+
+/* Slightly smaller lockup inside the panel */
+.lockup--sm { gap: 20px; }
+.lockup--sm .lockup__rushly { height: calc(var(--logo-h) * 0.82); }
+.lockup--sm .lockup__x { font-size: calc(var(--partner-fs) * 0.68); }
+.lockup--sm .lockup__partner { font-size: calc(var(--partner-fs) * 0.82); }
+
+.vp__divider { height: 1px; background: rgba(214,171,127,0.28); width: 100%; }
+
+.vp__headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: var(--headline-fs);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.vp__headline em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 400;
+  color: var(--tan); letter-spacing: 0;
+}
+.vp__foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.vp__url {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: var(--cta-fs);
+  letter-spacing: 0.03em;
+  color: var(--tan);
+  display: inline-flex; align-items: center; gap: 0.5em;
+}
+.vp__url::after { content: '→'; }
+.vp__meta {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; font-size: var(--foot-fs);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: rgba(247,243,238,0.42);
+}
+
+/* Story: keep the panel above IG's bottom UI */
+.fmt--story.variant--photo .vp__panel { padding-bottom: calc(var(--pad) * 1.9); }
+.fmt--story.variant--photo .vp__photo { min-height: 0; }
+
+/* Landscape: photo and panel side-by-side, photo dominant */
+.fmt--landscape.variant--photo .vp { flex-direction: row; }
+.fmt--landscape.variant--photo .vp__photo { flex: 1.5; }
+.fmt--landscape.variant--photo .vp__panel {
+  flex: 1; justify-content: center;
+  padding: var(--pad) calc(var(--pad) * 1.1);
+  gap: 16px;
+}
+
+/* ============================================================
    FORMAT SIZES + SCALE OVERRIDES
    ============================================================ */
 

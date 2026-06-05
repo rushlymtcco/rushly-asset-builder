@@ -17,6 +17,10 @@
   .t-landscape .frame__wrap { width: 504px; height: 265px; }
   .frame__wrap { overflow: hidden; }
   .row { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; align-items: flex-start; }
+  .style-head { text-align: center; margin: 28px 0 4px; }
+  .style-head h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 26px; color: var(--navy); }
+  .style-head h2 em { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: var(--tan); }
+  .style-head p { color: var(--muted); font-size: 15px; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -24,7 +28,12 @@
 <div class="gallery">
   <div class="gallery__head">
     <h1>Rushly &times; <em>Partner</em> — Social Templates</h1>
-    <p>Four formats, ready to edit. Open any file directly to tweak copy or swap the partner, then export to PNG (see README.md). Showing the <strong>partnership-announcement</strong> angle — two more angles are in COPY.md.</p>
+    <p>Two styles, four formats each — ready to edit. Open any file to tweak copy or swap the partner, then export to PNG (see README.md). More angles in COPY.md.</p>
+  </div>
+
+  <div class="style-head">
+    <h2>Style A — <em>Editorial</em></h2>
+    <p>Full message: tag, headline, subcopy, feature chips, and CTA.</p>
   </div>
 
   <div class="row">
@@ -46,6 +55,33 @@
     <div class="frame t-landscape">
       <div class="frame__label">Facebook / Link · 1200×630</div>
       <div class="frame__wrap"><iframe src="landscape.html" scrolling="no"></iframe></div>
+    </div>
+  </div>
+
+  <div class="style-head" style="margin-top:56px">
+    <h2>Style B — <em>Minimal</em> (image-forward)</h2>
+    <p>Big photo, just the lockup, one short headline, and the URL.</p>
+  </div>
+
+  <div class="row">
+    <div class="frame t-square">
+      <div class="frame__label">Instagram Square · 1080×1080</div>
+      <div class="frame__wrap"><iframe src="square-minimal.html" scrolling="no"></iframe></div>
+    </div>
+    <div class="frame t-portrait">
+      <div class="frame__label">Portrait Feed · 1080×1350</div>
+      <div class="frame__wrap"><iframe src="portrait-minimal.html" scrolling="no"></iframe></div>
+    </div>
+    <div class="frame t-story">
+      <div class="frame__label">Story / Reel · 1080×1920</div>
+      <div class="frame__wrap"><iframe src="story-minimal.html" scrolling="no"></iframe></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="frame t-landscape">
+      <div class="frame__label">Facebook / Link · 1200×630</div>
+      <div class="frame__wrap"><iframe src="landscape-minimal.html" scrolling="no"></iframe></div>
     </div>
   </div>
 </div>

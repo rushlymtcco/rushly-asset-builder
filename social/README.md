@@ -14,6 +14,11 @@ On-brand, editable social post templates for **Rushly × Partner** campaigns
 | `portrait.html` | Portrait feed — 1080×1350 |
 | `story.html` | Story / Reel — 1080×1920 |
 | `landscape.html` | Facebook / link — 1200×630 |
+| `*-minimal.html` | **Style B** — image-forward variants (big photo, short copy) in all four formats |
+
+**Two styles:** *Editorial* (`square.html` etc.) leads with the message — tag,
+headline, subcopy, chips, CTA. *Minimal* (`*-minimal.html`) leads with a large
+photo and just a lockup + one short headline + URL.
 | `social.css` | Shared brand styles for the post templates. |
 | `COPY.md` | Captions + the three message angles (swap-in copy). |
 | `assets/` | Logos and partner storefront photos. |
