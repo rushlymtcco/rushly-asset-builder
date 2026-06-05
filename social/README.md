@@ -32,10 +32,12 @@ On-brand, editable social post templates for **Rushly × Partner** campaigns
 in `assets/<partner>.png|jpeg`. Accent colors: Avenue `#E2876F`, Cutler
 `#ECD877`, Donut Star `#F2A6B5`.
 
-**Rushly mark on dark/photo/gel:** use `assets/rushly-logo-cream.png` — a
-cream recolor of the tan mark that keeps the box outlines (navy faces stay) and
-reads at high contrast on any background. The cream-bg light variant still uses
-the navy `rushly-logo.png`.
+**Rushly mark on dark/photo/gel:** the **standard** `rushly-logo.png` (navy
+wordmark + tan box) seated in a cream chip (`.cp__rushly`), matching the partner
+cream badge — full brand color, high contrast on any backdrop.
+
+Asset images in the collab-photo templates carry a `?v=N` cache-buster — bump
+N when you replace a logo or photo so browsers re-fetch it.
 | `social.css` | Shared brand styles for the post templates. |
 | `COPY.md` | Captions + the three message angles (swap-in copy). |
 | `assets/` | Logos and partner storefront photos. |

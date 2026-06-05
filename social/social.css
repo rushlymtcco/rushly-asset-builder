@@ -569,11 +569,17 @@ body {
   align-items: center; justify-content: center; text-align: center;
 }
 
-.cp__rushly { margin-bottom: 8%; }
-.cp__rushly img {
-  height: 84px; width: auto; display: block;
-  filter: drop-shadow(0 6px 22px rgba(0,0,0,0.45));
+/* Rushly = the STANDARD logo (navy wordmark + tan box) on a cream chip,
+   so it reads at full brand color on any photo/gel backdrop. */
+.cp__rushly {
+  margin-bottom: 8%;
+  background: var(--cream);
+  border-radius: 18px;
+  padding: 20px 34px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.40);
+  display: inline-flex; align-items: center; justify-content: center;
 }
+.cp__rushly img { height: 50px; width: auto; display: block; }
 .cp__x {
   font-family: 'Montserrat', sans-serif; font-weight: 300;
   font-size: 46px; line-height: 1; color: var(--accent);
@@ -598,8 +604,8 @@ body {
 }
 
 /* Landscape: tighter */
-.fmt--landscape.variant--collab-photo .cp__rushly img { height: 56px; }
-.fmt--landscape.variant--collab-photo .cp__rushly { margin-bottom: 4%; }
+.fmt--landscape.variant--collab-photo .cp__rushly { margin-bottom: 4%; padding: 13px 22px; border-radius: 13px; }
+.fmt--landscape.variant--collab-photo .cp__rushly img { height: 34px; }
 .fmt--landscape.variant--collab-photo .cp__x { font-size: 30px; margin-bottom: 4%; }
 .fmt--landscape.variant--collab-photo .cp__badge { width: 124px; height: 124px; margin-bottom: 4%; }
 .fmt--landscape.variant--collab-photo .cp__badge--wide { width: 200px; height: 124px; }
@@ -619,4 +625,3 @@ body {
 }
 .cp-gel .cp__x { color: var(--cream); }
 .cp-gel .cp__tagline { color: rgba(247,243,238,0.85); }
-.cp-gel .cp__rushly img { filter: drop-shadow(0 6px 22px rgba(0,0,0,0.55)); }
