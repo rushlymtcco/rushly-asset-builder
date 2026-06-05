@@ -581,8 +581,8 @@ body {
 }
 .cp__badge {
   width: 188px; height: 188px; border-radius: 50%;
-  background: #fff; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 22px 60px rgba(0,0,0,0.45);
+  background: var(--cream); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 22px 60px rgba(0,0,0,0.42);
   overflow: hidden; margin-bottom: 9%;
 }
 .cp__badge img { width: 84%; height: 84%; object-fit: contain; display: block; }
@@ -604,3 +604,19 @@ body {
 .fmt--landscape.variant--collab-photo .cp__badge { width: 124px; height: 124px; margin-bottom: 4%; }
 .fmt--landscape.variant--collab-photo .cp__badge--wide { width: 200px; height: 124px; }
 .fmt--landscape.variant--collab-photo .cp__tagline { font-size: 14px; }
+
+/* ---- Gel modifier: photo duotoned in the partner's brand color ----
+   Add class .cp-gel alongside .variant--collab-photo. The photo goes
+   grayscale and a translucent --accent wash tints the whole field; text
+   accents flip to cream for contrast. */
+.cp-gel .cp__bg img { filter: grayscale(1) brightness(0.5) contrast(1.12); }
+.cp-gel .cp__scrim {
+  background:
+    radial-gradient(78% 66% at 50% 46%, transparent 38%, rgba(8,11,18,0.55) 100%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--accent) 56%, transparent),
+      color-mix(in srgb, var(--accent) 74%, transparent));
+}
+.cp-gel .cp__x { color: var(--cream); }
+.cp-gel .cp__tagline { color: rgba(247,243,238,0.85); }
+.cp-gel .cp__rushly img { filter: drop-shadow(0 6px 22px rgba(0,0,0,0.55)); }
