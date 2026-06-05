@@ -1,0 +1,337 @@
+/* ============================================================
+   Rushly — Social Post Templates
+   Shared stylesheet. Brand tokens pulled from STYLE_GUIDE.md.
+   Each post is a fixed-pixel .post sized by a .fmt--* class.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700&family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --navy:   #2D425B;
+  --navy2:  #3a5270;
+  --tan:    #D6AB7F;
+  --tan2:   #e8c9a0;
+  --cream:  #F7F3EE;
+  --cream2: #EDE6DC;
+  --muted:  #7a8fa6;
+  --white:  #ffffff;
+
+  /* Easing from the brand */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Page chrome only — never captured in the export */
+body {
+  background: #d9d4cc;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   POST SHELL
+   ============================================================ */
+.post {
+  position: relative;
+  overflow: hidden;
+  color: var(--cream);
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(140deg, var(--navy) 0%, var(--navy2) 100%);
+  display: flex;
+  flex-direction: column;
+  flex: none;
+
+  /* Per-format scale tokens — overridden by .fmt--* below.
+     Defaults = square. */
+  --pad:         84px;
+  --logo-h:      58px;
+  --partner-fs:  40px;
+  --tag-fs:      16px;
+  --eyebrow-fs:  21px;
+  --headline-fs: 78px;
+  --headline-lh: 1.06;
+  --sub-fs:      27px;
+  --chip-fs:     19px;
+  --cta-fs:      23px;
+  --foot-fs:     18px;
+  --gap:         30px;
+}
+
+/* Decorative translucent circles — the brand's "navy header" motif */
+.post::before {
+  content: '';
+  position: absolute;
+  top: -16%; right: -14%;
+  width: 46%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+}
+.post::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -12%;
+  width: 42%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(214, 171, 127, 0.07);
+}
+
+.post__inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--pad);
+}
+
+/* ============================================================
+   CO-BRAND LOCKUP
+   ============================================================ */
+.lockup {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.lockup__rushly { height: var(--logo-h); width: auto; display: block; }
+.lockup__x {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: calc(var(--partner-fs) * 0.82);
+  color: var(--tan);
+  opacity: 0.7;
+  line-height: 1;
+}
+.lockup__partner {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--partner-fs);
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   BODY CONTENT
+   ============================================================ */
+.post__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap);
+  padding: var(--gap) 0;
+}
+
+.tag {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: var(--tag-fs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--tan);
+  padding: 0.55em 1.1em;
+  border-radius: 100px;
+}
+
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: var(--eyebrow-fs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tan);
+}
+
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: var(--headline-fs);
+  line-height: var(--headline-lh);
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+.headline em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--tan);
+  letter-spacing: 0;
+}
+
+.subcopy {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: var(--sub-fs);
+  line-height: 1.62;
+  color: rgba(247, 243, 238, 0.62);
+  max-width: 22em;
+}
+.subcopy strong { color: var(--cream); font-weight: 700; }
+
+/* Feature chips */
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: var(--chip-fs);
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  background: rgba(214, 171, 127, 0.12);
+  border: 1px solid rgba(214, 171, 127, 0.30);
+  padding: 0.6em 1.05em;
+  border-radius: 100px;
+}
+.chips li::before {
+  content: '';
+  width: 0.5em; height: 0.5em;
+  border-radius: 50%;
+  background: var(--tan);
+  flex: none;
+}
+
+/* ============================================================
+   FOOTER (CTA + meta)
+   ============================================================ */
+.post__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: var(--cta-fs);
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: var(--tan);
+  padding: 0.85em 1.5em;
+  border-radius: 14px;
+  text-decoration: none;
+}
+.cta::after {
+  content: '→';
+  font-weight: 700;
+}
+.foot__meta {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: var(--foot-fs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 238, 0.45);
+  text-align: right;
+}
+
+/* Framed partner storefront photo (used in portrait/story/landscape) */
+.photo {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 3px solid rgba(214, 171, 127, 0.35);
+  box-shadow: 0 24px 60px rgba(20, 32, 48, 0.35);
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ============================================================
+   FORMAT SIZES + SCALE OVERRIDES
+   ============================================================ */
+
+/* 1:1 — Instagram square */
+.fmt--square { width: 1080px; height: 1080px; }
+
+/* 4:5 — Portrait feed */
+.fmt--portrait {
+  width: 1080px; height: 1350px;
+  --headline-fs: 84px;
+  --sub-fs: 28px;
+  --gap: 32px;
+}
+
+/* 9:16 — Story / Reel */
+.fmt--story {
+  width: 1080px; height: 1920px;
+  --pad: 96px;
+  --logo-h: 64px;
+  --partner-fs: 46px;
+  --tag-fs: 18px;
+  --eyebrow-fs: 24px;
+  --headline-fs: 96px;
+  --sub-fs: 32px;
+  --chip-fs: 22px;
+  --cta-fs: 27px;
+  --foot-fs: 20px;
+  --gap: 40px;
+}
+/* Story keeps clear of IG's top/bottom UI overlays */
+.fmt--story .post__inner { padding-top: 200px; padding-bottom: 180px; }
+
+/* 1.91:1 — Facebook / link landscape */
+.fmt--landscape {
+  width: 1200px; height: 630px;
+  --pad: 60px;
+  --logo-h: 42px;
+  --partner-fs: 28px;
+  --tag-fs: 13px;
+  --eyebrow-fs: 15px;
+  --headline-fs: 50px;
+  --headline-lh: 1.05;
+  --sub-fs: 19px;
+  --chip-fs: 14px;
+  --cta-fs: 17px;
+  --foot-fs: 14px;
+  --gap: 18px;
+}
+.fmt--landscape .post__inner { flex-direction: row; align-items: stretch; gap: 52px; }
+.fmt--landscape .land-left  { flex: 1.2; display: flex; flex-direction: column; }
+.fmt--landscape .land-right { flex: 1; display: flex; }
+.fmt--landscape .lockup { margin-bottom: auto; }
+.fmt--landscape .post__body { justify-content: center; padding: 18px 0; gap: 16px; }
+.fmt--landscape .photo { width: 100%; }
+.fmt--landscape .subcopy { max-width: none; }
+
+/* ============================================================
+   GALLERY (index.html only)
+   ============================================================ */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
+}
+.gallery__head { text-align: center; color: var(--navy); max-width: 760px; }
+.gallery__head h1 {
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: 40px; margin-bottom: 12px;
+}
+.gallery__head h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--tan); }
+.gallery__head p { color: var(--muted); font-size: 17px; line-height: 1.6; }
+.frame { background: #fff; border-radius: 16px; box-shadow: 0 12px 48px rgba(45,66,91,0.14); overflow: hidden; }
+.frame__label {
+  font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+  padding: 16px 20px; border-bottom: 1px solid var(--cream2);
+}
+.frame iframe { display: block; border: 0; }

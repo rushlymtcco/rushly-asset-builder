@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rushly × Partner — Social Templates</title>
+<link rel="stylesheet" href="social.css">
+<style>
+  /* Scale each fixed-size post down to a preview thumbnail */
+  .frame iframe { transform-origin: top left; }
+  .t-square    iframe { width: 1080px; height: 1080px; transform: scale(0.42); }
+  .t-square    .frame__wrap { width: 453px; height: 453px; }
+  .t-portrait  iframe { width: 1080px; height: 1350px; transform: scale(0.42); }
+  .t-portrait  .frame__wrap { width: 453px; height: 567px; }
+  .t-story     iframe { width: 1080px; height: 1920px; transform: scale(0.30); }
+  .t-story     .frame__wrap { width: 324px; height: 576px; }
+  .t-landscape iframe { width: 1200px; height: 630px; transform: scale(0.42); }
+  .t-landscape .frame__wrap { width: 504px; height: 265px; }
+  .frame__wrap { overflow: hidden; }
+  .row { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; align-items: flex-start; }
+</style>
+</head>
+<body>
+
+<div class="gallery">
+  <div class="gallery__head">
+    <h1>Rushly &times; <em>Partner</em> — Social Templates</h1>
+    <p>Four formats, ready to edit. Open any file directly to tweak copy or swap the partner, then export to PNG (see README.md). Showing the <strong>partnership-announcement</strong> angle — two more angles are in COPY.md.</p>
+  </div>
+
+  <div class="row">
+    <div class="frame t-square">
+      <div class="frame__label">Instagram Square · 1080×1080</div>
+      <div class="frame__wrap"><iframe src="square.html" scrolling="no"></iframe></div>
+    </div>
+    <div class="frame t-portrait">
+      <div class="frame__label">Portrait Feed · 1080×1350</div>
+      <div class="frame__wrap"><iframe src="portrait.html" scrolling="no"></iframe></div>
+    </div>
+    <div class="frame t-story">
+      <div class="frame__label">Story / Reel · 1080×1920</div>
+      <div class="frame__wrap"><iframe src="story.html" scrolling="no"></iframe></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="frame t-landscape">
+      <div class="frame__label">Facebook / Link · 1200×630</div>
+      <div class="frame__wrap"><iframe src="landscape.html" scrolling="no"></iframe></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

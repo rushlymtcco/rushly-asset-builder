@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rushly — Social Media Style Guide</title>
+<link rel="icon" href="assets/rushly-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2D425B; --navy2:#3a5270; --tan:#D6AB7F; --tan2:#e8c9a0;
+    --cream:#F7F3EE; --cream2:#EDE6DC; --muted:#7a8fa6; --white:#fff; --red:#d94f4f;
+    --ease:cubic-bezier(0.22,1,0.36,1);
+    --maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Lato',sans-serif;color:var(--navy);background:var(--cream);
+    -webkit-font-smoothing:antialiased;line-height:1.6;
+  }
+  ::selection{background:var(--tan);color:var(--white)}
+
+  /* ---- Helpers ---- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .mono-eyebrow{
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;
+    letter-spacing:0.24em;text-transform:uppercase;color:var(--tan);
+  }
+  h2.section-title{
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(30px,4vw,46px);
+    line-height:1.08;letter-spacing:-0.01em;margin:14px 0 16px;color:var(--navy);
+  }
+  h2.section-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--tan)}
+  .section-lead{font-size:18px;color:var(--muted);max-width:60ch}
+  section{padding:96px 0;position:relative}
+  section + section{border-top:1px solid var(--cream2)}
+  .section-head{margin-bottom:48px}
+
+  /* ---- Sticky nav ---- */
+  header.nav{
+    position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(247,243,238,0.82);border-bottom:1px solid var(--cream2);
+  }
+  .nav__inner{max-width:var(--maxw);margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:24px}
+  .nav__logo{display:flex;align-items:center;gap:10px;font-family:'Montserrat';font-weight:900;letter-spacing:0.04em;color:var(--navy);text-decoration:none}
+  .nav__logo img{height:28px}
+  .nav__tag{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--cream2);padding-left:14px}
+  .nav__links{margin-left:auto;display:flex;gap:26px}
+  .nav__links a{font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--navy);text-decoration:none;opacity:0.75;transition:.2s}
+  .nav__links a:hover{opacity:1;color:var(--tan)}
+  @media(max-width:780px){.nav__links{display:none}}
+
+  /* ---- HERO ---- */
+  .hero{
+    background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 100%);
+    color:var(--cream);overflow:hidden;position:relative;padding:118px 0 110px;
+  }
+  .hero::before{content:'';position:absolute;top:-18%;right:-8%;width:42%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.04)}
+  .hero::after{content:'';position:absolute;bottom:-26%;left:-10%;width:40%;aspect-ratio:1;border-radius:50%;background:rgba(214,171,127,.08)}
+  .hero__inner{position:relative;z-index:1}
+  .hero img.mark{height:46px;margin-bottom:34px}
+  .hero h1{
+    font-family:'Montserrat',sans-serif;font-weight:900;color:var(--white);
+    font-size:clamp(46px,7vw,88px);line-height:1.02;letter-spacing:-0.02em;max-width:14ch;
+  }
+  .hero h1 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:var(--tan)}
+  .hero p.lede{margin-top:26px;font-size:clamp(17px,2vw,21px);color:rgba(247,243,238,.62);max-width:48ch}
+  .hero__meta{margin-top:42px;display:flex;gap:14px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:9px;font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.02em;color:var(--cream);background:rgba(214,171,127,.12);border:1px solid rgba(214,171,127,.30);padding:.6em 1.1em;border-radius:100px}
+  .pill::before{content:'';width:.5em;height:.5em;border-radius:50%;background:var(--tan)}
+
+  /* ---- COLOR ---- */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .sw{border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 10px 30px rgba(45,66,91,.08);cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+  .sw:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(45,66,91,.15)}
+  .sw__chip{height:120px;display:flex;align-items:flex-end;padding:14px}
+  .sw__chip span{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+  .sw__body{padding:14px 16px 18px}
+  .sw__name{font-family:'Montserrat';font-weight:800;font-size:14px;color:var(--navy)}
+  .sw__hex{font-family:'Montserrat';font-weight:700;font-size:12px;letter-spacing:.05em;color:var(--muted);margin-top:3px}
+  .sw__role{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.45}
+
+  /* ---- TYPE ---- */
+  .type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.type-grid{grid-template-columns:1fr}}
+  .type-card{background:var(--white);border-radius:18px;padding:30px;box-shadow:0 10px 30px rgba(45,66,91,.07)}
+  .type-card .label{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tan);margin-bottom:18px}
+  .type-card .spec{font-family:'Montserrat';font-weight:700;font-size:12px;color:var(--muted);margin-top:16px;letter-spacing:.02em}
+  .sample-mont{font-family:'Montserrat';font-weight:900;font-size:46px;color:var(--navy);line-height:1}
+  .sample-lato{font-family:'Lato';font-weight:400;font-size:19px;color:var(--navy);line-height:1.55}
+  .sample-play{font-family:'Playfair Display';font-style:italic;font-weight:400;font-size:46px;color:var(--tan);line-height:1}
+
+  .signature{background:var(--white);border-radius:20px;padding:48px;margin-top:28px;box-shadow:0 10px 30px rgba(45,66,91,.07);display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+  .signature__demo{font-family:'Montserrat';font-weight:900;font-size:clamp(30px,4vw,52px);color:var(--navy);line-height:1.05;flex:1;min-width:260px}
+  .signature__demo em{font-family:'Playfair Display';font-style:italic;font-weight:400;color:var(--tan)}
+  .signature__note{flex:1;min-width:240px;color:var(--muted);font-size:15px}
+  .signature__note code{font-family:'Montserrat';font-weight:700;font-size:13px;background:var(--cream);color:var(--navy);padding:2px 7px;border-radius:6px}
+
+  /* ---- Scale table ---- */
+  .scale{margin-top:28px;width:100%;border-collapse:collapse;background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(45,66,91,.07)}
+  .scale th,.scale td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--cream2);font-size:14px}
+  .scale th{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--cream)}
+  .scale td:first-child{font-family:'Montserrat';font-weight:800;color:var(--navy)}
+  .scale tr:last-child td{border-bottom:none}
+
+  /* ---- LOCKUP ---- */
+  .lockup-stage{background:linear-gradient(140deg,var(--navy),var(--navy2));border-radius:22px;padding:64px;display:flex;align-items:center;justify-content:center;gap:30px;position:relative;overflow:hidden}
+  .lockup-stage::after{content:'';position:absolute;top:-30%;right:-8%;width:34%;aspect-ratio:1;border-radius:50%;background:rgba(214,171,127,.08)}
+  .lk-rushly{height:56px;position:relative;z-index:1}
+  .lk-x{font-family:'Montserrat';font-weight:700;font-size:40px;color:var(--tan);opacity:.7;position:relative;z-index:1}
+  .lk-partner{font-family:'Playfair Display';font-style:italic;font-size:46px;color:var(--cream);position:relative;z-index:1}
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+  .rule{background:var(--white);border-radius:16px;padding:24px 26px;box-shadow:0 8px 24px rgba(45,66,91,.06);border-left:4px solid var(--tan)}
+  .rule.dont{border-left-color:var(--red)}
+  .rule h4{font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .rule.do h4{color:#3c8f5f}.rule.dont h4{color:var(--red)}
+  .rule p{font-size:14.5px;color:var(--muted)}
+
+  /* ---- POST ANATOMY ---- */
+  .anatomy{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  @media(max-width:860px){.anatomy{grid-template-columns:1fr}}
+  .anatomy img{width:100%;border-radius:20px;box-shadow:0 24px 60px rgba(45,66,91,.22)}
+  .anno{list-style:none;display:flex;flex-direction:column;gap:18px}
+  .anno li{display:flex;gap:16px;align-items:flex-start}
+  .anno .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--tan);color:var(--white);font-family:'Montserrat';font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .anno h4{font-family:'Montserrat';font-weight:800;font-size:15px;color:var(--navy);margin-bottom:2px}
+  .anno p{font-size:14px;color:var(--muted)}
+
+  /* ---- FORMATS ---- */
+  .formats{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+  @media(max-width:760px){.formats{grid-template-columns:1fr}}
+  .fmt{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 12px 36px rgba(45,66,91,.10);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .fmt:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(45,66,91,.18)}
+  .fmt__img{background:var(--cream2);display:flex;align-items:center;justify-content:center;padding:26px}
+  .fmt__img img{max-width:100%;max-height:360px;border-radius:10px;box-shadow:0 14px 36px rgba(45,66,91,.20)}
+  .fmt__meta{padding:20px 24px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .fmt__meta h4{font-family:'Montserrat';font-weight:900;font-size:16px;color:var(--navy)}
+  .fmt__meta .dim{font-family:'Montserrat';font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:2px}
+  .fmt__use{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--tan);background:rgba(214,171,127,.12);border:1px solid rgba(214,171,127,.3);padding:.5em .9em;border-radius:100px;white-space:nowrap}
+
+  /* ---- VOICE / CAPTIONS ---- */
+  .voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.voice-grid{grid-template-columns:1fr}}
+  .voice-card{background:var(--white);border-radius:18px;padding:30px;box-shadow:0 10px 30px rgba(45,66,91,.07)}
+  .voice-card h4{font-family:'Montserrat';font-weight:900;font-size:18px;margin-bottom:14px;color:var(--navy)}
+  .voice-card ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .voice-card li{position:relative;padding-left:26px;font-size:15px;color:var(--navy)}
+  .voice-card li::before{position:absolute;left:0;top:1px;font-weight:900;font-family:'Montserrat'}
+  .voice-card.do li::before{content:'✓';color:#3c8f5f}
+  .voice-card.dont li{color:var(--muted)}
+  .voice-card.dont li::before{content:'✕';color:var(--red)}
+  .caption-demo{margin-top:28px;background:var(--white);border-radius:18px;padding:30px 32px;box-shadow:0 10px 30px rgba(45,66,91,.07);border-left:4px solid var(--tan)}
+  .caption-demo .label{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tan);margin-bottom:12px}
+  .caption-demo p{font-size:16px;color:var(--navy);line-height:1.65}
+  .caption-demo .tags{margin-top:14px;font-size:13.5px;color:var(--muted);font-weight:700}
+
+  /* ---- FOOTER ---- */
+  footer.foot{background:linear-gradient(140deg,var(--navy),var(--navy2));color:var(--cream);padding:70px 0;text-align:center;position:relative;overflow:hidden}
+  footer.foot::after{content:'';position:absolute;bottom:-30%;right:-6%;width:30%;aspect-ratio:1;border-radius:50%;background:rgba(214,171,127,.07)}
+  footer.foot img{height:38px;margin-bottom:20px;position:relative;z-index:1}
+  footer.foot p{color:rgba(247,243,238,.55);font-size:14px;position:relative;z-index:1}
+  footer.foot p em{font-family:'Playfair Display';font-style:italic;color:var(--tan)}
+
+  .copy-toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:var(--white);font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.04em;padding:12px 22px;border-radius:100px;opacity:0;pointer-events:none;transition:.25s var(--ease);z-index:99}
+  .copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#top"><img src="assets/rushly-logo.png" alt="Rushly"></a>
+    <span class="nav__tag">Social Media Style Guide</span>
+    <nav class="nav__links">
+      <a href="#color">Color</a>
+      <a href="#type">Type</a>
+      <a href="#lockup">Lockup</a>
+      <a href="#anatomy">Anatomy</a>
+      <a href="#formats">Formats</a>
+      <a href="#voice">Voice</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero__inner">
+    <img class="mark" src="assets/rushly-logo_alt3.png" alt="Rushly">
+    <h1>Social that feels <em>same&#8209;day</em> fast.</h1>
+    <p class="lede">The complete playbook for Rushly's social presence — colors, type, the partner co-brand lockup, post anatomy, formats, and voice. Built to keep every post unmistakably Rushly.</p>
+    <div class="hero__meta">
+      <span class="pill">Warm</span>
+      <span class="pill">Trustworthy</span>
+      <span class="pill">Premium, not fussy</span>
+      <span class="pill">Local &amp; personal</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOR ============ -->
+<section id="color">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">01 — Palette</span>
+      <h2 class="section-title">A warm navy, <em>grounded</em> in cream.</h2>
+      <p class="section-lead">Deep navy carries the brand; soft tan is the single accent. Cream keeps everything calm and editorial. Click any swatch to copy its hex.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw" data-hex="#2D425B"><div class="sw__chip" style="background:#2D425B;color:#fff"><span>Primary</span></div><div class="sw__body"><div class="sw__name">Navy</div><div class="sw__hex">#2D425B</div><div class="sw__role">Headlines, dark surfaces, primary CTAs</div></div></div>
+      <div class="sw" data-hex="#3a5270"><div class="sw__chip" style="background:#3a5270;color:#fff"><span>Gradient</span></div><div class="sw__body"><div class="sw__name">Navy 2</div><div class="sw__hex">#3A5270</div><div class="sw__role">Second stop in the 140° navy gradient</div></div></div>
+      <div class="sw" data-hex="#D6AB7F"><div class="sw__chip" style="background:#D6AB7F;color:#2D425B"><span>Accent</span></div><div class="sw__body"><div class="sw__name">Tan</div><div class="sw__hex">#D6AB7F</div><div class="sw__role">The accent — italic words, eyebrows, chips, CTAs</div></div></div>
+      <div class="sw" data-hex="#e8c9a0"><div class="sw__chip" style="background:#e8c9a0;color:#2D425B"><span>Hover</span></div><div class="sw__body"><div class="sw__name">Tan 2</div><div class="sw__hex">#E8C9A0</div><div class="sw__role">Tan hover state &amp; lighter gradient stop</div></div></div>
+      <div class="sw" data-hex="#F7F3EE"><div class="sw__chip" style="background:#F7F3EE;color:#2D425B;border-bottom:1px solid #EDE6DC"><span>Surface</span></div><div class="sw__body"><div class="sw__name">Cream</div><div class="sw__hex">#F7F3EE</div><div class="sw__role">Backgrounds &amp; light text on navy</div></div></div>
+      <div class="sw" data-hex="#7a8fa6"><div class="sw__chip" style="background:#7a8fa6;color:#fff"><span>Muted</span></div><div class="sw__body"><div class="sw__name">Muted</div><div class="sw__hex">#7A8FA6</div><div class="sw__role">Secondary text, captions, labels</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPE ============ -->
+<section id="type">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">02 — Typography</span>
+      <h2 class="section-title">Three voices, <em>one</em> rhythm.</h2>
+      <p class="section-lead">Montserrat does the heavy lifting; Lato keeps copy readable; Playfair adds one elegant italic note. Never more than these three.</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card"><div class="label">Headlines &amp; UI</div><div class="sample-mont">Aa</div><div class="spec">Montserrat · 700 / 800 / 900</div></div>
+      <div class="type-card"><div class="label">Body copy</div><div class="sample-lato">The quick care package<br>jumps the line to the MTC.</div><div class="spec">Lato · 300 / 400 / 700</div></div>
+      <div class="type-card"><div class="label">Italic accent</div><div class="sample-play">same&#8209;day</div><div class="spec">Playfair Display · italic 400</div></div>
+    </div>
+
+    <div class="signature">
+      <div class="signature__demo">Same&#8209;day delivery, <em>done right</em>.</div>
+      <div class="signature__note"><strong>The signature move.</strong> A bold Montserrat headline with exactly <em>one</em> word set in Playfair italic and tan. Wrap that word in <code>&lt;em&gt;</code>. One accent per headline — never two.</div>
+    </div>
+
+    <table class="scale">
+      <thead><tr><th>Role</th><th>Font / weight</th><th>Size</th></tr></thead>
+      <tbody>
+        <tr><td>Headline</td><td>Montserrat 900</td><td>76–96px (clamp on web)</td></tr>
+        <tr><td>Eyebrow / kicker</td><td>Montserrat 700, 0.22em tracking, UPPER</td><td>13–24px</td></tr>
+        <tr><td>Tag pill</td><td>Montserrat 800, UPPER, navy-on-tan</td><td>13–18px</td></tr>
+        <tr><td>Body / subcopy</td><td>Lato 400, line-height 1.6</td><td>19–32px</td></tr>
+        <tr><td>Chips &amp; meta</td><td>Montserrat 800</td><td>14–22px</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ LOCKUP ============ -->
+<section id="lockup">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">03 — Co-brand lockup</span>
+      <h2 class="section-title">Rushly <em>&times;</em> Partner.</h2>
+      <p class="section-lead">Every partner post leads with the same lockup: the Rushly mark, a tan multiply sign, and the partner's name in Playfair italic. Equal weight, equal respect.</p>
+    </div>
+    <div class="lockup-stage">
+      <img class="lk-rushly" src="assets/rushly-logo_alt3.png" alt="Rushly">
+      <span class="lk-x">&times;</span>
+      <span class="lk-partner">Avenue Bakery</span>
+    </div>
+    <div class="rules">
+      <div class="rule do"><h4>✓ Do</h4><p>Use the <strong>tan wordmark</strong> (rushly-logo_alt3) on navy, and the navy logo on cream. Keep clear space around the lockup equal to the height of the box icon.</p></div>
+      <div class="rule do"><h4>✓ Do</h4><p>Set the partner name in <strong>Playfair italic</strong>, cream or white. The <strong>&times;</strong> is Montserrat, tan, ~70% opacity — a connector, not a focal point.</p></div>
+      <div class="rule dont"><h4>✕ Don't</h4><p>Don't stretch, recolor, add shadows to, or rotate the Rushly mark. Don't place the navy logo on a navy/photo background where it disappears.</p></div>
+      <div class="rule dont"><h4>✕ Don't</h4><p>Don't make the partner larger than Rushly (or vice-versa), and never swap the accent color away from tan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANATOMY ============ -->
+<section id="anatomy">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">04 — Post anatomy</span>
+      <h2 class="section-title">Every post, <em>same</em> bones.</h2>
+      <p class="section-lead">A predictable stack makes the feed feel cohesive and lets you ship fast. From top to bottom:</p>
+    </div>
+    <div class="anatomy">
+      <img src="exports/post-square.png" alt="Annotated Rushly social post">
+      <ul class="anno">
+        <li><span class="n">1</span><div><h4>Co-brand lockup</h4><p>Rushly &times; Partner, pinned top-left.</p></div></li>
+        <li><span class="n">2</span><div><h4>Tag pill</h4><p>Navy-on-tan label — the one-line hook ("New drop-off partner").</p></div></li>
+        <li><span class="n">3</span><div><h4>Headline</h4><p>Montserrat 900 with a single Playfair-italic tan accent word.</p></div></li>
+        <li><span class="n">4</span><div><h4>Subcopy</h4><p>Lato, one or two lines, muted cream. Bold the key promise.</p></div></li>
+        <li><span class="n">5</span><div><h4>Feature chips</h4><p>Three tan-dot pills — the proof points (same-day · Mon–Fri · cutoff).</p></div></li>
+        <li><span class="n">6</span><div><h4>CTA + meta</h4><p>Tan button to rushlymtc.com, with the location line opposite.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMATS ============ -->
+<section id="formats">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">05 — Formats</span>
+      <h2 class="section-title">One idea, <em>four</em> frames.</h2>
+      <p class="section-lead">The same template, sized for every placement. Each is an editable HTML file in this folder — tweak the copy, swap the partner, export to PNG.</p>
+    </div>
+    <div class="formats">
+      <div class="fmt"><div class="fmt__img"><img src="exports/post-square.png" alt="Square post"></div><div class="fmt__meta"><div><h4>Square</h4><div class="dim">1080 × 1080 · square.html</div></div><span class="fmt__use">IG Feed</span></div></div>
+      <div class="fmt"><div class="fmt__img"><img src="exports/post-portrait.png" alt="Portrait post"></div><div class="fmt__meta"><div><h4>Portrait</h4><div class="dim">1080 × 1350 · portrait.html</div></div><span class="fmt__use">IG / FB Feed</span></div></div>
+      <div class="fmt"><div class="fmt__img"><img src="exports/post-story.png" alt="Story post"></div><div class="fmt__meta"><div><h4>Story / Reel</h4><div class="dim">1080 × 1920 · story.html</div></div><span class="fmt__use">Stories</span></div></div>
+      <div class="fmt"><div class="fmt__img"><img src="exports/post-landscape.png" alt="Landscape post"></div><div class="fmt__meta"><div><h4>Landscape</h4><div class="dim">1200 × 630 · landscape.html</div></div><span class="fmt__use">FB / Link</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section id="voice">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">06 — Voice &amp; captions</span>
+      <h2 class="section-title">Talk like a <em>helpful friend</em>.</h2>
+      <p class="section-lead">Warm, reassuring, and practical — you're helping a missionary mom send love across the miles. Confident, never salesy.</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card do">
+        <h4>Do</h4>
+        <ul>
+          <li>Lead with the benefit: same-day, easy, local.</li>
+          <li>Speak to the parent / sender, warmly.</li>
+          <li>Be specific — name the location and cutoff time.</li>
+          <li>One clear CTA: order at rushlymtc.com.</li>
+          <li>A tasteful emoji or two (📦 💛 ☕).</li>
+        </ul>
+      </div>
+      <div class="voice-card dont">
+        <h4>Don't</h4>
+        <ul>
+          <li>Hype or pressure ("ACT NOW!!!").</li>
+          <li>Corporate jargon or logistics-speak.</li>
+          <li>Emoji walls or ALL CAPS sentences.</li>
+          <li>Bury the offer under three paragraphs.</li>
+          <li>Forget the partner shout-out / tag.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="caption-demo">
+      <div class="label">Caption template</div>
+      <p>📦✨ Big news — Rushly is now partnered with <strong>@avenuebakery</strong>! Drop your missionary's care package at Avenue Bakery on Fourth in SLC and we'll deliver it the <em>same day</em> to the Provo MTC. 💛 &nbsp;Order online → rushlymtc.com</p>
+      <p class="tags">#ProvoMTC #MTCpackages #MissionaryMom #SisterMissionary #SaltLakeCity #SameDayDelivery #RushlyMTC</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <img src="assets/rushly-logo_alt3.png" alt="Rushly">
+  <p>Rushly Social Media Style Guide · Same-day care packages to the Provo MTC</p>
+  <p style="margin-top:6px">Keep it warm. Keep it <em>same&#8209;day</em>.</p>
+</footer>
+
+<div class="copy-toast" id="toast">Copied!</div>
+
+<script>
+  // Click-to-copy hex on swatches
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  document.querySelectorAll('.sw').forEach(sw=>{
+    sw.addEventListener('click',()=>{
+      const hex = sw.dataset.hex;
+      navigator.clipboard?.writeText(hex);
+      toast.textContent = hex + ' copied';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>toast.classList.remove('show'),1400);
+    });
+  });
+</script>
+
+</body>
+</html>

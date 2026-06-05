@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rushly — Brand & Social Assets</title>
+<link rel="icon" href="social/assets/rushly-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;800;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#2D425B;--navy2:#3a5270;--tan:#D6AB7F;--tan2:#e8c9a0;--cream:#F7F3EE;--muted:#7a8fa6;--white:#fff}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Lato',sans-serif;background:linear-gradient(140deg,var(--navy),var(--navy2));color:var(--cream);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden}
+  body::before{content:'';position:absolute;top:-16%;right:-10%;width:42%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.04)}
+  body::after{content:'';position:absolute;bottom:-22%;left:-10%;width:40%;aspect-ratio:1;border-radius:50%;background:rgba(214,171,127,.08)}
+  .card{position:relative;z-index:1;max-width:560px;width:100%;text-align:center}
+  .card img{height:46px;margin-bottom:34px}
+  h1{font-family:'Montserrat';font-weight:900;font-size:clamp(34px,6vw,56px);line-height:1.05;color:var(--white);letter-spacing:-0.01em}
+  h1 em{font-family:'Playfair Display';font-style:italic;font-weight:400;color:var(--tan)}
+  p.lede{margin:22px auto 38px;color:rgba(247,243,238,.6);font-size:18px;max-width:42ch;line-height:1.6}
+  .links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  a.btn{display:inline-flex;align-items:center;gap:.55em;font-family:'Montserrat';font-weight:800;font-size:15px;letter-spacing:.02em;text-decoration:none;padding:15px 28px;border-radius:12px;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s}
+  a.primary{background:var(--tan);color:var(--white)}
+  a.primary:hover{background:var(--tan2);transform:translateY(-2px);box-shadow:0 8px 22px rgba(214,171,127,.4)}
+  a.primary::after{content:'→'}
+  a.ghost{background:transparent;border:2px solid rgba(214,171,127,.4);color:var(--cream)}
+  a.ghost:hover{border-color:var(--tan);color:var(--tan);transform:translateY(-2px)}
+  .foot{margin-top:46px;font-family:'Montserrat';font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,243,238,.35)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="social/assets/rushly-logo_alt3.png" alt="Rushly">
+    <h1>Brand &amp; <em>social</em> assets.</h1>
+    <p class="lede">The Rushly social-media style guide and ready-to-edit post templates, in one place.</p>
+    <div class="links">
+      <a class="btn primary" href="social/STYLE_GUIDE.html">Open the style guide</a>
+      <a class="btn ghost" href="social/index.html">Post templates</a>
+    </div>
+    <div class="foot">Same-day care packages to the Provo MTC</div>
+  </div>
+</body>
+</html>
