@@ -20,9 +20,17 @@ On-brand, editable social post templates for **Rushly × Partner** campaigns
 **Three styles:**
 - *Editorial* (`square.html` …) leads with the message — tag, headline, subcopy, chips, CTA.
 - *Minimal* (`*-minimal.html`) leads with a large photo + lockup + one short headline + URL.
-- *Collab* (`collab-*.html`) — premium, tonal, minimal: the Rushly mark embossed
-  into a textured field, a thin `×` lockup, and delicate widely-tracked small
-  text. `collab-light-square.html` is the clean cream alternate.
+- *Collab* — premium, minimal co-brand drop. Two looks:
+  - **Over photo** (`collab-photo-*.html`) — *recommended*. A dimmed partner
+    photo backdrop, the detailed Rushly mark (tan, outlines kept), the real
+    partner logo in a white badge, and the **partner's own accent color** on
+    the `×` and tracked small text. Set `--accent` inline per partner.
+    Per-partner examples: `-cutler` (golden), `-donut` (pink), `-avenue-af` (coral).
+  - **Solid** — `collab-*.html` (tonal navy) and `collab-light-square.html` (cream).
+
+**Partner assets:** logos live in `assets/logo-*.png|jpg`; storefront photos in
+`assets/<partner>.png|jpeg`. Accent colors: Avenue `#E2876F`, Cutler `#ECD877`,
+Donut Star `#F2A6B5`.
 | `social.css` | Shared brand styles for the post templates. |
 | `COPY.md` | Captions + the three message angles (swap-in copy). |
 | `assets/` | Logos and partner storefront photos. |
