@@ -555,18 +555,24 @@ body {
 .cp__bg { position: absolute; inset: 0; z-index: 0; }
 .cp__bg img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: saturate(0.92) brightness(1.06);
+  filter: saturate(1.0) brightness(1.0);
 }
-/* Light, airy wash — photo stays a faint backdrop, brightest at the centre so
-   the logos read directly (no badge). Faintly tinted toward --accent. */
+/* Balanced: the storefront photo stays visible around the edges, while a soft
+   cream halo behind the lockup keeps the logos crisp. Faint --accent tint;
+   a gentle bottom lift keeps the tagline/credit legible over the photo. */
 .cp__scrim {
   position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(72% 60% at 50% 47%,
-      color-mix(in srgb, color-mix(in srgb, var(--accent) 13%, #FBF8F3) 93%, transparent) 0%,
-      color-mix(in srgb, color-mix(in srgb, var(--accent) 19%, #F4EFE8) 84%, transparent) 100%);
+    linear-gradient(0deg,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 12%, #F4EFE8) 46%, transparent) 0%,
+      transparent 34%),
+    radial-gradient(62% 58% at 50% 46%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 10%, #FBF8F3) 94%, transparent) 0%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 11%, #FBF8F3) 90%, transparent) 30%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 14%, #F4EFE8) 48%, transparent) 60%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 17%, #EDE6DC) 12%, transparent) 100%);
 }
-.variant--collab-photo .collab__credit { color: rgba(45,66,91,0.32); }
+.variant--collab-photo .collab__credit { color: rgba(45,66,91,0.34); }
 
 .variant--collab-photo .post__inner {
   align-items: center; justify-content: center; text-align: center;
@@ -574,44 +580,51 @@ body {
 
 /* Logos sit directly on the light field — NO badge/chip.
    Rushly = the standard logo (navy wordmark + tan box). */
-.cp__rushly { margin-bottom: 8%; }
+.cp__rushly { margin-bottom: 6.5%; }
 .cp__rushly img {
-  height: 76px; width: auto; display: block;
-  filter: drop-shadow(0 2px 10px rgba(45,66,91,0.12));
+  height: 98px; width: auto; display: block;
+  filter: drop-shadow(0 2px 12px rgba(45,66,91,0.14));
 }
 .cp__x {
   font-family: 'Montserrat', sans-serif; font-weight: 300;
-  font-size: 46px; line-height: 1; color: rgba(45,66,91,0.5);
-  margin-bottom: 8%;
+  font-size: 52px; line-height: 1; color: rgba(45,66,91,0.5);
+  margin-bottom: 6.5%;
 }
-.cp__badge { margin-bottom: 9%; display: flex; align-items: center; justify-content: center; }
+.cp__badge { margin-bottom: 7%; display: flex; align-items: center; justify-content: center; }
 .cp__badge img {
-  height: 196px; width: auto; max-width: 64%; object-fit: contain; display: block;
-  filter: drop-shadow(0 2px 10px rgba(45,66,91,0.12));
+  height: 256px; width: auto; max-width: 72%; object-fit: contain; display: block;
+  filter: drop-shadow(0 3px 14px rgba(45,66,91,0.16));
 }
-.cp__badge--wide img { height: 150px; max-width: 72%; }
+.cp__badge--wide img { height: 196px; max-width: 78%; }
 
 .cp__tagline {
   font-family: 'Montserrat', sans-serif; font-weight: 500;
-  text-transform: uppercase; font-size: 19px; letter-spacing: 0.34em;
-  padding-left: 0.34em; color: rgba(45,66,91,0.6);
+  text-transform: uppercase; font-size: 21px; letter-spacing: 0.34em;
+  padding-left: 0.34em; color: rgba(45,66,91,0.62);
 }
 
 /* Landscape: tighter */
 .fmt--landscape.variant--collab-photo .cp__rushly { margin-bottom: 4%; }
-.fmt--landscape.variant--collab-photo .cp__rushly img { height: 48px; }
-.fmt--landscape.variant--collab-photo .cp__x { font-size: 30px; margin-bottom: 4%; }
-.fmt--landscape.variant--collab-photo .cp__badge img { height: 124px; }
-.fmt--landscape.variant--collab-photo .cp__badge--wide img { height: 98px; }
-.fmt--landscape.variant--collab-photo .cp__tagline { font-size: 14px; }
+.fmt--landscape.variant--collab-photo .cp__rushly img { height: 60px; }
+.fmt--landscape.variant--collab-photo .cp__x { font-size: 34px; margin-bottom: 4%; }
+.fmt--landscape.variant--collab-photo .cp__badge img { height: 156px; }
+.fmt--landscape.variant--collab-photo .cp__badge--wide img { height: 122px; }
+.fmt--landscape.variant--collab-photo .cp__tagline { font-size: 15px; }
 
 /* ---- Gel modifier: a stronger but still LIGHT partner-color wash ----
    Add .cp-gel alongside .variant--collab-photo. The photo softens and the
    field takes on a creamy pastel of --accent; dark logos/text stay readable. */
-.cp-gel .cp__bg img { filter: grayscale(0.5) saturate(1) brightness(1.08); }
+/* Duotone: grayscale the photo so the brand colour reads as a true wash;
+   keep the centre lighter so the logos stay legible, saturate toward edges. */
+.cp-gel .cp__bg img { filter: grayscale(1) brightness(1.12) contrast(1.0); }
 .cp-gel .cp__scrim {
   background:
-    radial-gradient(74% 62% at 50% 47%,
-      color-mix(in srgb, color-mix(in srgb, var(--accent) 30%, #FBF8F3) 91%, transparent) 0%,
-      color-mix(in srgb, color-mix(in srgb, var(--accent) 42%, #F2EADF) 87%, transparent) 100%);
+    linear-gradient(0deg,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 34%, #F4EDE0) 60%, transparent) 0%,
+      transparent 32%),
+    radial-gradient(70% 64% at 50% 46%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 30%, #FCF9F4) 90%, transparent) 0%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 42%, #FBF6EF) 85%, transparent) 26%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 60%, #F2E9DC) 78%, transparent) 56%,
+      color-mix(in srgb, color-mix(in srgb, var(--accent) 74%, #EADFCF) 85%, transparent) 100%);
 }
