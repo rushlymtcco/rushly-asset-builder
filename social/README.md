@@ -15,10 +15,14 @@ On-brand, editable social post templates for **Rushly × Partner** campaigns
 | `story.html` | Story / Reel — 1080×1920 |
 | `landscape.html` | Facebook / link — 1200×630 |
 | `*-minimal.html` | **Style B** — image-forward variants (big photo, short copy) in all four formats |
+| `collab-*.html` | **Style C** — tonal/embossed collab (square/portrait/story/landscape) + `collab-light-square.html` |
 
-**Two styles:** *Editorial* (`square.html` etc.) leads with the message — tag,
-headline, subcopy, chips, CTA. *Minimal* (`*-minimal.html`) leads with a large
-photo and just a lockup + one short headline + URL.
+**Three styles:**
+- *Editorial* (`square.html` …) leads with the message — tag, headline, subcopy, chips, CTA.
+- *Minimal* (`*-minimal.html`) leads with a large photo + lockup + one short headline + URL.
+- *Collab* (`collab-*.html`) — premium, tonal, minimal: the Rushly mark embossed
+  into a textured field, a thin `×` lockup, and delicate widely-tracked small
+  text. `collab-light-square.html` is the clean cream alternate.
 | `social.css` | Shared brand styles for the post templates. |
 | `COPY.md` | Captions + the three message angles (swap-in copy). |
 | `assets/` | Logos and partner storefront photos. |

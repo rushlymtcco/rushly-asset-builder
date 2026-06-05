@@ -4,7 +4,7 @@
    Each post is a fixed-pixel .post sized by a .fmt--* class.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700&family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --navy:   #2D425B;
@@ -423,3 +423,121 @@ body {
   padding: 16px 20px; border-bottom: 1px solid var(--cream2);
 }
 .frame iframe { display: block; border: 0; }
+
+/* ============================================================
+   VARIANT C — COLLAB (tonal, embossed, minimal)
+   Inspired by premium fashion/film collab drops: a textured
+   monochrome field, the brand mark embossed into it, a thin ×
+   lockup, and delicate widely-tracked small text.
+   ============================================================ */
+
+/* ---- C-dark: tonal navy ---- */
+.variant--collab {
+  background-color: #2D425B;
+  background-image:
+    radial-gradient(55% 45% at 24% 28%, rgba(104,134,166,0.20), transparent 62%),
+    radial-gradient(50% 45% at 82% 74%, rgba(17,28,44,0.55), transparent 60%),
+    radial-gradient(130% 105% at 50% 38%, #35506e 0%, #2b4058 52%, #203249 100%);
+}
+/* film grain — fully reset the shared decorative circle */
+.variant--collab::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.40; mix-blend-mode: overlay;
+}
+/* vignette — fully reset the shared decorative circle */
+.variant--collab::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0;
+  background: radial-gradient(78% 70% at 50% 44%, transparent 38%, rgba(13,22,36,0.6) 100%);
+}
+
+.variant--collab .post__inner {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.collab__mark { width: 62%; margin-bottom: 9%; }
+.collab__mark img {
+  width: 100%; display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.62;
+  mix-blend-mode: soft-light;
+}
+.collab__x {
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  font-size: 52px; line-height: 1;
+  color: rgba(247,243,238,0.5);
+  margin-bottom: 6%;
+}
+.collab__partner {
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+  text-transform: uppercase;
+  font-size: 40px; letter-spacing: 0.34em;
+  padding-left: 0.34em; /* balance trailing tracking */
+  color: rgba(247,243,238,0.74);
+  line-height: 1.1;
+}
+.collab__tagline {
+  font-family: 'Montserrat', sans-serif; font-weight: 400;
+  text-transform: uppercase;
+  font-size: 18px; letter-spacing: 0.32em;
+  padding-left: 0.32em;
+  color: rgba(214,171,127,0.6);
+  margin-top: 9%;
+}
+.collab__credit {
+  position: absolute; z-index: 2;
+  bottom: var(--pad); left: var(--pad);
+  font-family: 'Montserrat', sans-serif; font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px; letter-spacing: 0.2em;
+  color: rgba(247,243,238,0.3);
+}
+
+/* ---- C-light: clean cream (Disney|albion vibe) ---- */
+.variant--collab-light { background: #F4EFE8; background-image: none; }
+.variant--collab-light::before,
+.variant--collab-light::after { display: none; }
+.variant--collab-light .collab__mark img {
+  filter: none; opacity: 1; mix-blend-mode: normal;
+}
+.variant--collab-light .collab__x { color: rgba(45,66,91,0.4); }
+.variant--collab-light .collab__partner { color: rgba(45,66,91,0.78); }
+.variant--collab-light .collab__tagline { color: rgba(45,66,91,0.45); }
+.variant--collab-light .collab__credit { color: rgba(45,66,91,0.3); }
+.variant--collab-light .collab__photo {
+  width: 46%; aspect-ratio: 1; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 30px 70px rgba(45,66,91,0.22); margin-bottom: 9%;
+}
+.variant--collab-light .collab__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.variant--collab-light .collab__lockup {
+  display: flex; align-items: center; justify-content: center; gap: 22px;
+  margin-bottom: 7%;
+}
+.variant--collab-light .collab__lockup img { height: 40px; }
+.variant--collab-light .collab__lockup .pipe { width: 1px; height: 34px; background: rgba(45,66,91,0.25); }
+.variant--collab-light .collab__lockup .pname {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400;
+  font-size: 34px; color: var(--navy);
+}
+.variant--collab-light .collab__title {
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: 62px; line-height: 1.04; letter-spacing: -0.01em;
+  color: var(--navy);
+}
+.variant--collab-light .collab__title em {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: var(--tan);
+}
+
+/* ---- Landscape sizing for collab ---- */
+.fmt--landscape.variant--collab .collab__mark { width: 40%; margin-bottom: 5%; }
+.fmt--landscape.variant--collab .collab__x { font-size: 32px; margin-bottom: 3%; }
+.fmt--landscape.variant--collab .collab__partner { font-size: 25px; }
+.fmt--landscape.variant--collab .collab__tagline { font-size: 13px; margin-top: 5%; }
+.fmt--landscape.variant--collab .collab__credit { font-size: 11px; }
