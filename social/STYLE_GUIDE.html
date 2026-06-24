@@ -142,6 +142,16 @@
   .fmt__meta .dim{font-family:'Montserrat';font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:2px}
   .fmt__use{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--tan);background:rgba(214,171,127,.12);border:1px solid rgba(214,171,127,.3);padding:.5em .9em;border-radius:100px;white-space:nowrap}
 
+  /* ---- HIGHLIGHTS ---- */
+  .hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  @media(max-width:760px){.hl-grid{grid-template-columns:repeat(2,1fr)}}
+  .hl{text-align:center}
+  .hl__disc{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--cream2);box-shadow:0 12px 36px rgba(45,66,91,.12);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .hl__disc img{width:100%;height:100%;object-fit:cover;display:block}
+  .hl:hover .hl__disc{transform:translateY(-6px);box-shadow:0 22px 52px rgba(45,66,91,.18)}
+  .hl__name{font-family:'Montserrat';font-weight:800;font-size:14px;color:var(--navy);margin-top:16px}
+  .hl__sub{font-family:'Montserrat';font-weight:700;font-size:11.5px;letter-spacing:.02em;color:var(--muted);margin-top:3px}
+
   /* ---- VOICE / CAPTIONS ---- */
   .voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   @media(max-width:760px){.voice-grid{grid-template-columns:1fr}}
@@ -182,6 +192,7 @@
       <a href="#lockup">Lockup</a>
       <a href="#anatomy">Anatomy</a>
       <a href="#formats">Formats</a>
+      <a href="#highlights">Highlights</a>
       <a href="#voice">Voice</a>
     </nav>
   </div>
@@ -314,11 +325,30 @@
   </div>
 </section>
 
+<!-- ============ HIGHLIGHTS ============ -->
+<section id="highlights">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">06 — Highlight covers</span>
+      <h2 class="section-title">Icons that read as <em>one set</em>.</h2>
+      <p class="section-lead">Instagram highlight covers, built from the brand: a cream disc, a fine double navy ring, one navy line icon, and a single tan accent each. Edit them in <code>highlights.html</code> and export at 1080×1080.</p>
+    </div>
+    <div class="hl-grid">
+      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-send.png" alt="How to send a package highlight cover"></div><div class="hl__name">How to Send a Package</div><div class="hl__sub">Parcel · tan tape</div></div>
+      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-locations.png" alt="Locations highlight cover"></div><div class="hl__name">Locations</div><div class="hl__sub">Map pin · tan dot</div></div>
+      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-ideas.png" alt="Package ideas highlight cover"></div><div class="hl__name">Package Ideas</div><div class="hl__sub">Lightbulb · tan filament</div></div>
+      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-wallpaper.png" alt="Wallpaper highlight cover"></div><div class="hl__name">Wallpaper</div><div class="hl__sub">Phone · tan sun</div></div>
+      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-buy.png" alt="What to buy your missionary highlight cover"></div><div class="hl__name">What to Buy</div><div class="hl__sub">Cart · tan wheels</div></div>
+      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-checklist.png" alt="Missionary checklist highlight cover"></div><div class="hl__name">Missionary Checklist</div><div class="hl__sub">Clipboard · tan checks</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ VOICE ============ -->
 <section id="voice">
   <div class="wrap">
     <div class="section-head">
-      <span class="mono-eyebrow">06 — Voice &amp; captions</span>
+      <span class="mono-eyebrow">07 — Voice &amp; captions</span>
       <h2 class="section-title">Talk like a <em>helpful friend</em>.</h2>
       <p class="section-lead">Warm, reassuring, and practical — you're helping a missionary mom send love across the miles. Confident, never salesy.</p>
     </div>
