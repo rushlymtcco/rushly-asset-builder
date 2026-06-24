@@ -42,7 +42,8 @@
           background:var(--cream);box-shadow:inset 0 0 0 5px var(--navy)}
   .bubble::after{content:'';position:absolute;inset:30px;border-radius:50%;
           border:2.5px solid rgba(45,66,91,.32)}
-  .icon{position:absolute;inset:0;margin:auto;width:420px;height:420px;z-index:1}
+  .icon{position:absolute;inset:0;margin:auto;width:520px;height:520px;z-index:1}
+  .icon-img{position:absolute;inset:0;margin:auto;width:560px;height:auto;z-index:1}
   .icon .s{fill:none;stroke:var(--navy);stroke-width:4.4;
            stroke-linecap:round;stroke-linejoin:round}
   .icon .a{fill:none;stroke:var(--tan);stroke-width:4.4;
@@ -72,17 +73,10 @@
   <!-- 1 · HOW TO SEND A PACKAGE -->
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-send"><div class="bubble">
-      <svg class="icon" viewBox="0 0 100 100">
-        <!-- isometric parcel -->
-        <path class="s" d="M50 30 L74 42 L50 54 L26 42 Z"/>
-        <path class="s" d="M26 42 L26 64 L50 76 L50 54"/>
-        <path class="s" d="M74 42 L74 64 L50 76"/>
-        <!-- tan tape, over the top + down the front -->
-        <path class="a" d="M50 30 L50 54 L50 76"/>
-      </svg>
+      <img class="icon-img" src="assets/rushly-icon.png" alt="Rushly package mark">
     </div></div></div>
     <div class="label">How to Send a Package</div>
-    <div class="sub">parcel · motion = sending</div>
+    <div class="sub">Rushly package mark</div>
   </div>
 
   <!-- 2 · LOCATIONS -->
@@ -101,17 +95,21 @@
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-ideas"><div class="bubble">
       <svg class="icon" viewBox="0 0 100 100">
-        <!-- lightbulb -->
-        <path class="s" d="M50 22 C39 22 31 30 31 41 C31 49 36 53 39 58 L39 64 H61 V58 C64 53 69 49 69 41 C69 30 61 22 50 22 Z"/>
-        <line class="s" x1="42" y1="70" x2="58" y2="70"/>
-        <line class="s" x1="45" y1="75" x2="55" y2="75"/>
-        <!-- tan filament + spark -->
-        <path class="a" d="M44 44 L50 50 L56 44"/>
-        <line class="a" x1="50" y1="50" x2="50" y2="58"/>
+        <!-- open box -->
+        <path class="s" d="M34 66 L34 86 L66 86 L66 66"/>
+        <path class="s" d="M34 66 L25 58"/>
+        <path class="s" d="M66 66 L75 58"/>
+        <!-- lightbulb rising out -->
+        <path class="s" d="M50 33 C42 33 36 39 36 47 C36 53 40 56 42.5 59 L57.5 59 C60 56 64 53 64 47 C64 39 58 33 50 33 Z"/>
+        <line class="s" x1="44" y1="63" x2="56" y2="63"/>
+        <!-- tan idea glow -->
+        <line class="a" x1="50" y1="20" x2="50" y2="27"/>
+        <line class="a" x1="29" y1="29" x2="34" y2="33"/>
+        <line class="a" x1="71" y1="29" x2="66" y2="33"/>
       </svg>
     </div></div></div>
     <div class="label">Package Ideas</div>
-    <div class="sub">lightbulb · tan filament</div>
+    <div class="sub">open box + bulb · tan glow</div>
   </div>
 
   <!-- 4 · WALLPAPER -->
