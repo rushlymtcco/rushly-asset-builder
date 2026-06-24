@@ -151,6 +151,31 @@
   .hl:hover .hl__disc{transform:translateY(-6px);box-shadow:0 22px 52px rgba(45,66,91,.18)}
   .hl__name{font-family:'Montserrat';font-weight:800;font-size:14px;color:var(--navy);margin-top:16px}
   .hl__sub{font-family:'Montserrat';font-weight:700;font-size:11.5px;letter-spacing:.02em;color:var(--muted);margin-top:3px}
+  /* download affordance on each icon */
+  .hl__disc{position:relative;display:block}
+  .hl__dl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+          border-radius:50%;background:rgba(45,66,91,.0);opacity:0;transition:.25s var(--ease);
+          font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.08em;
+          text-transform:uppercase;color:var(--cream);text-decoration:none}
+  .hl__dl span{background:var(--tan);color:var(--navy);padding:.55em 1em;border-radius:100px;
+          box-shadow:0 6px 18px rgba(45,66,91,.25)}
+  .hl:hover .hl__dl{opacity:1;background:rgba(45,66,91,.34)}
+
+  /* ---- DOWNLOADS ---- */
+  .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:760px){.dl-grid{grid-template-columns:1fr}}
+  .dl-card{background:var(--white);border-radius:18px;padding:28px 26px 26px;box-shadow:0 10px 30px rgba(45,66,91,.08);display:flex;flex-direction:column}
+  .dl-card h4{font-family:'Montserrat';font-weight:900;font-size:17px;color:var(--navy)}
+  .dl-card .meta{font-family:'Montserrat';font-weight:700;font-size:12px;color:var(--muted);margin:6px 0 18px}
+  .dl-card p{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:20px;flex:1}
+  .dl-btn{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+          font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.04em;
+          color:var(--cream);background:var(--navy);text-decoration:none;
+          padding:.75em 1.2em;border-radius:100px;transition:.2s var(--ease)}
+  .dl-btn:hover{background:var(--tan);color:var(--navy);transform:translateY(-2px)}
+  .dl-btn::before{content:'↓';font-size:15px}
+  .dl-note{font-size:13px;color:var(--muted);margin-top:22px}
+  .dl-note code{font-family:'Montserrat';font-weight:700;background:var(--cream);padding:2px 7px;border-radius:6px}
 
   /* ---- VOICE / CAPTIONS ---- */
   .voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -193,6 +218,7 @@
       <a href="#anatomy">Anatomy</a>
       <a href="#formats">Formats</a>
       <a href="#highlights">Highlights</a>
+      <a href="#downloads">Downloads</a>
       <a href="#voice">Voice</a>
     </nav>
   </div>
@@ -334,13 +360,47 @@
       <p class="section-lead">Instagram highlight covers, built from the brand: a cream disc, a fine double navy ring, one navy line icon, and a single tan accent each. Edit them in <code>highlights.html</code> and export at 1080×1080.</p>
     </div>
     <div class="hl-grid">
-      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-send.png" alt="How to send a package highlight cover"></div><div class="hl__name">How to Send a Package</div><div class="hl__sub">Rushly icon · brown removed</div></div>
-      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-locations.png" alt="Locations highlight cover"></div><div class="hl__name">Locations</div><div class="hl__sub">Map pin · tan dot</div></div>
-      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-ideas.png" alt="Package ideas highlight cover"></div><div class="hl__name">Package Ideas</div><div class="hl__sub">Open box + bulb · tan glow</div></div>
-      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-wallpaper.png" alt="Wallpaper highlight cover"></div><div class="hl__name">Wallpaper</div><div class="hl__sub">Phone · tan sun</div></div>
-      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-buy.png" alt="What to buy your missionary highlight cover"></div><div class="hl__name">What to Buy</div><div class="hl__sub">Cart · tan wheels</div></div>
-      <div class="hl"><div class="hl__disc"><img src="exports/highlights/highlight-checklist.png" alt="Missionary checklist highlight cover"></div><div class="hl__name">Missionary Checklist</div><div class="hl__sub">Clipboard · tan checks</div></div>
+      <div class="hl"><a class="hl__disc" href="exports/highlights/highlight-send.png" download="rushly-highlight-how-to-send.png"><img src="exports/highlights/highlight-send.png" alt="How to send a package highlight cover"><span class="hl__dl"><span>↓ PNG</span></span></a><div class="hl__name">How to Send a Package</div><div class="hl__sub">Rushly icon · grey tape · gold label</div></div>
+      <div class="hl"><a class="hl__disc" href="exports/highlights/highlight-locations.png" download="rushly-highlight-locations.png"><img src="exports/highlights/highlight-locations.png" alt="Locations highlight cover"><span class="hl__dl"><span>↓ PNG</span></span></a><div class="hl__name">Locations</div><div class="hl__sub">Map pin · tan dot</div></div>
+      <div class="hl"><a class="hl__disc" href="exports/highlights/highlight-ideas.png" download="rushly-highlight-package-ideas.png"><img src="exports/highlights/highlight-ideas.png" alt="Package ideas highlight cover"><span class="hl__dl"><span>↓ PNG</span></span></a><div class="hl__name">Package Ideas</div><div class="hl__sub">Open box + bulb · tan glow</div></div>
+      <div class="hl"><a class="hl__disc" href="exports/highlights/highlight-wallpaper.png" download="rushly-highlight-wallpaper.png"><img src="exports/highlights/highlight-wallpaper.png" alt="Wallpaper highlight cover"><span class="hl__dl"><span>↓ PNG</span></span></a><div class="hl__name">Wallpaper</div><div class="hl__sub">Phone · tan sun</div></div>
+      <div class="hl"><a class="hl__disc" href="exports/highlights/highlight-buy.png" download="rushly-highlight-what-to-buy.png"><img src="exports/highlights/highlight-buy.png" alt="What to buy your missionary highlight cover"><span class="hl__dl"><span>↓ PNG</span></span></a><div class="hl__name">What to Buy</div><div class="hl__sub">Cart · tan wheels</div></div>
+      <div class="hl"><a class="hl__disc" href="exports/highlights/highlight-checklist.png" download="rushly-highlight-checklist.png"><img src="exports/highlights/highlight-checklist.png" alt="Missionary checklist highlight cover"><span class="hl__dl"><span>↓ PNG</span></span></a><div class="hl__name">Missionary Checklist</div><div class="hl__sub">Clipboard · tan checks</div></div>
     </div>
+    <p class="dl-note">Hover any cover and click to download that PNG (1080×1080), or grab the whole set below.
+       <a class="dl-btn" style="margin-left:10px" href="downloads/rushly-highlight-icons.zip" download>All 6 icons (ZIP)</a></p>
+  </div>
+</section>
+
+<!-- ============ DOWNLOADS ============ -->
+<section id="downloads">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono-eyebrow">07 — Downloads</span>
+      <h2 class="section-title">Grab the <em>asset kit</em>.</h2>
+      <p class="section-lead">Everything you need to post, in one place. Download a bundle, or click any individual cover above. PNGs are export-ready; logos are transparent.</p>
+    </div>
+    <div class="dl-grid">
+      <div class="dl-card">
+        <h4>Highlight icons</h4>
+        <div class="meta">6 PNG · 1080×1080 · transparent-ready</div>
+        <p>The full set of Instagram highlight covers — send, locations, package ideas, wallpaper, what to buy, and checklist.</p>
+        <a class="dl-btn" href="downloads/rushly-highlight-icons.zip" download>Download ZIP</a>
+      </div>
+      <div class="dl-card">
+        <h4>Brand logos</h4>
+        <div class="meta">7 PNG · transparent</div>
+        <p>Primary wordmark and variants (tan, grey, motto lockup) plus the standalone Rushly app icon, for any background.</p>
+        <a class="dl-btn" href="downloads/rushly-logos.zip" download>Download ZIP</a>
+      </div>
+      <div class="dl-card">
+        <h4>Post templates</h4>
+        <div class="meta">Rendered PNGs · all formats</div>
+        <p>Every pre-rendered post — square, portrait, story, landscape, and the collab variants. Edit the HTML in this folder to customize.</p>
+        <a class="dl-btn" href="downloads/rushly-post-templates.zip" download>Download ZIP</a>
+      </div>
+    </div>
+    <p class="dl-note">Individual files also live in <code>exports/</code> and <code>assets/</code>. Opening this guide from a local file? If a PNG opens in the browser instead of downloading, right-click → <em>Save image as…</em> — the ZIP buttons always download.</p>
   </div>
 </section>
 
@@ -348,7 +408,7 @@
 <section id="voice">
   <div class="wrap">
     <div class="section-head">
-      <span class="mono-eyebrow">07 — Voice &amp; captions</span>
+      <span class="mono-eyebrow">08 — Voice &amp; captions</span>
       <h2 class="section-title">Talk like a <em>helpful friend</em>.</h2>
       <p class="section-lead">Warm, reassuring, and practical — you're helping a missionary mom send love across the miles. Confident, never salesy.</p>
     </div>
