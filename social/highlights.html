@@ -43,6 +43,7 @@
   .bubble::after{content:'';position:absolute;inset:30px;border-radius:50%;
           border:2.5px solid rgba(45,66,91,.32)}
   .icon{position:absolute;inset:0;margin:auto;width:680px;height:680px;z-index:1}
+  .icon-img{position:absolute;inset:0;margin:auto;max-width:600px;max-height:600px;z-index:1}
   .icon .s{fill:none;stroke:var(--navy);stroke-width:4.4;
            stroke-linecap:round;stroke-linejoin:round}
   .icon .a{fill:none;stroke:var(--tan);stroke-width:4.4;
@@ -72,23 +73,10 @@
   <!-- 1 · HOW TO SEND A PACKAGE -->
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-send"><div class="bubble">
-      <svg class="icon" viewBox="0 0 100 100">
-        <g transform="translate(11,0)">
-          <!-- motion lines -->
-          <line class="s" x1="6" y1="42" x2="20" y2="42"/>
-          <line class="s" x1="2" y1="51" x2="18" y2="51"/>
-          <line class="s" x1="6" y1="60" x2="20" y2="60"/>
-          <!-- isometric Rushly box -->
-          <path class="s" d="M52 26 L76 38 L52 50 L28 38 Z"/>
-          <path class="s" d="M28 38 L28 62 L52 74 L52 50"/>
-          <path class="s" d="M76 38 L76 62 L52 74"/>
-          <!-- tan tape: over the ridge + down the front -->
-          <path class="a" d="M52 26 L52 50 L52 74"/>
-        </g>
-      </svg>
+      <img class="icon-img" src="assets/icon-send.png" alt="Rushly package mark">
     </div></div></div>
     <div class="label">How to Send a Package</div>
-    <div class="sub">Rushly mark · tan tape</div>
+    <div class="sub">Rushly icon · brown removed</div>
   </div>
 
   <!-- 2 · LOCATIONS -->
@@ -160,16 +148,8 @@
   <!-- 6 · MISSIONARY CHECKLIST -->
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-checklist"><div class="bubble">
-      <svg class="icon" viewBox="0 0 100 100">
-        <!-- clipboard -->
-        <rect class="s" x="32" y="26" width="36" height="50" rx="5"/>
-        <rect class="s" x="42" y="20" width="16" height="11" rx="3"/>
-        <!-- rows: tan checks + navy lines -->
-        <path class="a" d="M39 42 l3 3 l5 -6"/>
-        <line class="s" x1="51" y1="42" x2="61" y2="42"/>
-        <path class="a" d="M39 55 l3 3 l5 -6"/>
-        <line class="s" x1="51" y1="55" x2="61" y2="55"/>
-      </svg>
+      <img class="icon-img" src="assets/icon-checklist.png" alt="Missionary checklist">
+
     </div></div></div>
     <div class="label">Missionary Checklist</div>
     <div class="sub">clipboard · tan checks</div>
