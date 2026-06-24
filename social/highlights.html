@@ -45,10 +45,9 @@
   /* All glyphs normalized to the same on-disc size (~600px largest dimension) */
   .icon{position:absolute;inset:0;margin:auto;width:652px;height:652px;z-index:1}
   .icon-img{position:absolute;inset:0;margin:auto;width:600px;height:600px;object-fit:contain;z-index:1}
-  .icon .s{fill:none;stroke:var(--navy);stroke-width:4.4;
-           stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-  .icon .a{fill:none;stroke:var(--tan);stroke-width:4.4;
-           stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  /* stroke-width set per-icon on the <g> to counter each scale -> equal ~42px weight */
+  .icon .s{fill:none;stroke:var(--navy);stroke-linecap:round;stroke-linejoin:round}
+  .icon .a{fill:none;stroke:var(--tan);stroke-linecap:round;stroke-linejoin:round}
   .icon .af{fill:var(--tan);stroke:none}
 
   /* ---- Export mode: /highlights.html?export=cover-send ---- */
@@ -84,7 +83,7 @@
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-locations"><div class="bubble">
       <svg class="icon" viewBox="0 0 100 100">
-        <g transform="translate(50 50) scale(1.533) translate(-50 -50)">
+        <g transform="translate(50 50) scale(1.533) translate(-50 -50)" style="stroke-width:4.25">
           <path class="s" d="M50 20 C37 20 27 30 27 43 C27 62 50 80 50 80 C50 80 73 62 73 43 C73 30 63 20 50 20 Z"/>
           <circle class="a" cx="50" cy="43" r="9"/>
         </g>
@@ -108,7 +107,7 @@
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-wallpaper"><div class="bubble">
       <svg class="icon" viewBox="0 0 100 100">
-        <g transform="translate(50 50) scale(1.643) translate(-50 -50)">
+        <g transform="translate(50 50) scale(1.643) translate(-50 -50)" style="stroke-width:3.97">
           <!-- phone -->
           <rect class="s" x="35" y="22" width="30" height="56" rx="7"/>
           <line class="s" x1="46" y1="28" x2="54" y2="28"/>
@@ -127,7 +126,7 @@
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-buy"><div class="bubble">
       <svg class="icon" viewBox="0 0 100 100">
-        <g transform="translate(50 50) scale(1.878) translate(-48.5 -52.25)">
+        <g transform="translate(50 50) scale(1.878) translate(-48.5 -52.25)" style="stroke-width:3.47">
           <!-- cart -->
           <path class="s" d="M24 30 H32 L39 60 H67 L73 40 H37"/>
           <circle class="a" cx="43" cy="70" r="4.5"/>
