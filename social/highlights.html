@@ -42,12 +42,13 @@
           background:var(--cream);box-shadow:inset 0 0 0 5px var(--navy)}
   .bubble::after{content:'';position:absolute;inset:30px;border-radius:50%;
           border:2.5px solid rgba(45,66,91,.32)}
-  .icon{position:absolute;inset:0;margin:auto;width:680px;height:680px;z-index:1}
-  .icon-img{position:absolute;inset:0;margin:auto;max-width:600px;max-height:600px;z-index:1}
+  /* All glyphs normalized to the same on-disc size (~600px largest dimension) */
+  .icon{position:absolute;inset:0;margin:auto;width:652px;height:652px;z-index:1}
+  .icon-img{position:absolute;inset:0;margin:auto;width:600px;height:600px;object-fit:contain;z-index:1}
   .icon .s{fill:none;stroke:var(--navy);stroke-width:4.4;
-           stroke-linecap:round;stroke-linejoin:round}
+           stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
   .icon .a{fill:none;stroke:var(--tan);stroke-width:4.4;
-           stroke-linecap:round;stroke-linejoin:round}
+           stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
   .icon .af{fill:var(--tan);stroke:none}
 
   /* ---- Export mode: /highlights.html?export=cover-send ---- */
@@ -83,8 +84,10 @@
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-locations"><div class="bubble">
       <svg class="icon" viewBox="0 0 100 100">
-        <path class="s" d="M50 20 C37 20 27 30 27 43 C27 62 50 80 50 80 C50 80 73 62 73 43 C73 30 63 20 50 20 Z"/>
-        <circle class="a" cx="50" cy="43" r="9"/>
+        <g transform="translate(50 50) scale(1.533) translate(-50 -50)">
+          <path class="s" d="M50 20 C37 20 27 30 27 43 C27 62 50 80 50 80 C50 80 73 62 73 43 C73 30 63 20 50 20 Z"/>
+          <circle class="a" cx="50" cy="43" r="9"/>
+        </g>
       </svg>
     </div></div></div>
     <div class="label">Locations</div>
@@ -94,7 +97,7 @@
   <!-- 3 · PACKAGE IDEAS -->
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-ideas"><div class="bubble">
-      <img class="icon-img" src="assets/icon-ideas.png" alt="Package ideas — lightbulb" style="max-height:680px">
+      <img class="icon-img" src="assets/icon-ideas.png" alt="Package ideas — lightbulb">
 
     </div></div></div>
     <div class="label">Package Ideas</div>
@@ -105,13 +108,15 @@
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-wallpaper"><div class="bubble">
       <svg class="icon" viewBox="0 0 100 100">
-        <!-- phone -->
-        <rect class="s" x="35" y="22" width="30" height="56" rx="7"/>
-        <line class="s" x1="46" y1="28" x2="54" y2="28"/>
-        <!-- image: mountains -->
-        <path class="s" d="M41 64 L48 54 L53 60 L58 50 L59 64 Z"/>
-        <!-- tan sun -->
-        <circle class="a" cx="56" cy="38" r="4.5"/>
+        <g transform="translate(50 50) scale(1.643) translate(-50 -50)">
+          <!-- phone -->
+          <rect class="s" x="35" y="22" width="30" height="56" rx="7"/>
+          <line class="s" x1="46" y1="28" x2="54" y2="28"/>
+          <!-- image: mountains -->
+          <path class="s" d="M41 64 L48 54 L53 60 L58 50 L59 64 Z"/>
+          <!-- tan sun -->
+          <circle class="a" cx="56" cy="38" r="4.5"/>
+        </g>
       </svg>
     </div></div></div>
     <div class="label">Wallpaper</div>
@@ -122,10 +127,12 @@
   <div class="cell">
     <div class="stage"><div class="cover" id="cover-buy"><div class="bubble">
       <svg class="icon" viewBox="0 0 100 100">
-        <!-- cart -->
-        <path class="s" d="M24 30 H32 L39 60 H67 L73 40 H37"/>
-        <circle class="a" cx="43" cy="70" r="4.5"/>
-        <circle class="a" cx="64" cy="70" r="4.5"/>
+        <g transform="translate(50 50) scale(1.878) translate(-48.5 -52.25)">
+          <!-- cart -->
+          <path class="s" d="M24 30 H32 L39 60 H67 L73 40 H37"/>
+          <circle class="a" cx="43" cy="70" r="4.5"/>
+          <circle class="a" cx="64" cy="70" r="4.5"/>
+        </g>
       </svg>
     </div></div></div>
     <div class="label">What to Buy</div>
