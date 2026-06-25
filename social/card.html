@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rushly — Business Card</title>
+<link rel="icon" href="assets/rushly-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2D425B; --navy2:#3a5270; --tan:#D6AB7F; --tan2:#e8c9a0;
+    --cream:#F7F3EE; --cream2:#EDE6DC; --muted:#7a8fa6; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Montserrat',sans-serif;background:var(--cream2);color:var(--navy);
+       padding:40px 24px 70px;display:flex;flex-direction:column;align-items:center;gap:34px}
+  .page-head{text-align:center;max-width:900px}
+  .page-head h1{font-weight:800;font-size:24px}
+  .page-head p{font-weight:700;font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+  .page-head code{background:var(--cream);padding:2px 7px;border-radius:6px}
+
+  /* on-screen preview scale; export node is true 1050×600 (3.5×2in @300dpi) */
+  .stage{width:525px;height:300px;border-radius:14px;overflow:hidden;
+         box-shadow:0 18px 50px rgba(45,66,91,.20)}
+  .stage .card{transform:scale(0.5);transform-origin:top left}
+
+  /* ============================================================
+     BUSINESS CARD · 1050 × 600  (3.5 × 2 in trim @ 300dpi)
+     Add 0.125in bleed -> 1125 × 675 for print.
+     ============================================================ */
+  .card{width:1050px;height:600px;position:relative;overflow:hidden}
+
+  /* ---------- FRONT · brand ---------- */
+  .front{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 100%);
+         display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .front::before{content:'';position:absolute;top:-30%;right:-12%;width:46%;aspect-ratio:1;
+         border-radius:50%;background:radial-gradient(circle,rgba(214,171,127,.20),transparent 68%)}
+  .front::after{content:'';position:absolute;bottom:-34%;left:-14%;width:50%;aspect-ratio:1;
+         border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.07),transparent 66%)}
+  .front__ring{position:absolute;top:50%;left:50%;width:760px;height:760px;transform:translate(-50%,-50%);
+         border-radius:50%;border:1px solid rgba(247,243,238,.06)}
+  .front__ring::after{content:'';position:absolute;inset:90px;border-radius:50%;border:1px solid rgba(214,171,127,.07)}
+  .plaque{position:relative;z-index:2;background:var(--cream);border-radius:22px;
+          padding:42px 60px;box-shadow:0 26px 60px rgba(0,0,0,.34),0 2px 0 rgba(255,255,255,.5) inset}
+  .plaque img{height:96px;display:block}
+  .front__tag{position:relative;z-index:2;margin-top:34px;text-align:center;
+          font-family:'Montserrat';font-weight:800;font-size:25px;letter-spacing:.10em;
+          text-transform:uppercase;color:var(--cream);line-height:1.32}
+  .front__tag em{font-family:'Playfair Display';font-style:italic;font-weight:500;
+          text-transform:none;letter-spacing:0;color:var(--tan);font-size:30px}
+  .front__rule{position:relative;z-index:2;margin-top:22px;width:62px;height:3px;border-radius:2px;
+          background:linear-gradient(90deg,transparent,var(--tan),transparent)}
+
+  /* ---------- BACK · info ---------- */
+  .back{background:var(--cream);padding:46px 50px 0;display:flex;flex-direction:column}
+  .back::before{content:'';position:absolute;top:-22%;right:-10%;width:38%;aspect-ratio:1;border-radius:50%;
+          background:radial-gradient(circle,rgba(214,171,127,.14),transparent 70%)}
+  .back__top{display:flex;gap:44px;align-items:center;flex:1}
+  .qr{flex:none;width:300px;height:300px;background:var(--white);border-radius:24px;
+      box-shadow:0 18px 44px rgba(45,66,91,.16);display:flex;align-items:center;justify-content:center;position:relative}
+  .qr img{width:236px;height:236px;display:block}
+  .qr__hint{font-family:'Montserrat';font-weight:800;font-size:14px;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.5}
+  body.export .qr__hint{display:none}
+  .info{flex:1;min-width:0}
+  .info h2{font-family:'Montserrat';font-weight:800;font-size:30px;line-height:1.16;color:var(--navy);letter-spacing:-0.01em}
+  .info h2 em{font-family:'Playfair Display';font-style:italic;font-weight:400;color:var(--tan)}
+  .locs{margin-top:22px;display:flex;flex-direction:column}
+  .loc{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--cream2)}
+  .loc:first-child{border-top:none}
+  .loc__pin{flex:none;width:13px;height:13px;position:relative}
+  .loc__pin svg{width:13px;height:18px;display:block;margin-top:-3px}
+  .loc__name{font-family:'Montserrat';font-weight:800;font-size:16px;color:var(--navy);white-space:nowrap}
+  .loc__city{font-family:'Lato';font-weight:400;font-size:15px;color:var(--muted)}
+  .loc__city::before{content:'·';margin:0 9px;color:var(--tan);font-weight:800}
+
+  .cta{margin:26px -50px 0;background:linear-gradient(135deg,var(--navy),var(--navy2));
+      padding:22px 50px;display:flex;align-items:center;justify-content:center;gap:14px;position:relative}
+  .cta::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tan)}
+  .cta span{font-family:'Montserrat';font-weight:800;font-size:21px;letter-spacing:.01em;color:var(--cream)}
+  .cta b{color:var(--tan)}
+  .cta__scan{flex:none;display:flex;align-items:center;gap:9px;color:var(--tan);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+
+  /* ---- export mode ---- */
+  body.export{padding:0;background:#fff;gap:0}
+  body.export .page-head{display:none}
+  body.export .stage{width:1050px;height:600px;border-radius:0;box-shadow:none}
+  body.export .stage .card{transform:none}
+  body.export .stage{display:none}
+  body.export .stage.show{display:block}
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>Rushly — Business Card</h1>
+  <p>3.5 × 2 in · front + back. Export each <code>.card</code> at 1050×600 (add 0.125in bleed → 1125×675 for print). Previews scaled to 50%.</p>
+</div>
+
+<!-- ===================== FRONT ===================== -->
+<div class="stage" id="stage-front"><div class="card front">
+  <div class="front__ring"></div>
+  <div class="plaque"><img src="assets/rushly-logo.png" alt="Rushly"></div>
+  <div class="front__tag">Same&#8209;day delivery<br>to the <em>Provo&nbsp;MTC</em></div>
+  <div class="front__rule"></div>
+</div></div>
+
+<!-- ===================== BACK ===================== -->
+<div class="stage" id="stage-back"><div class="card back">
+  <div class="back__top">
+    <div class="qr">
+      <span class="qr__hint">Add your<br>QR code</span>
+    </div>
+    <div class="info">
+      <h2>Four seriously <em>sweet</em> drop&#8209;off locations to choose from!</h2>
+      <div class="locs">
+        <div class="loc"><span class="loc__pin"><svg viewBox="0 0 24 33"><path d="M12 1 C6 1 1.5 5.5 1.5 11.5 C1.5 19.5 12 31.5 12 31.5 C12 31.5 22.5 19.5 22.5 11.5 C22.5 5.5 18 1 12 1 Z" fill="none" stroke="#D6AB7F" stroke-width="2.4"/><circle cx="12" cy="11.5" r="3.6" fill="#D6AB7F"/></svg></span><span class="loc__name">Cutler Cookie Co.</span><span class="loc__city">Bountiful</span></div>
+        <div class="loc"><span class="loc__pin"><svg viewBox="0 0 24 33"><path d="M12 1 C6 1 1.5 5.5 1.5 11.5 C1.5 19.5 12 31.5 12 31.5 C12 31.5 22.5 19.5 22.5 11.5 C22.5 5.5 18 1 12 1 Z" fill="none" stroke="#D6AB7F" stroke-width="2.4"/><circle cx="12" cy="11.5" r="3.6" fill="#D6AB7F"/></svg></span><span class="loc__name">Avenue Bakery on 4th</span><span class="loc__city">Salt Lake City</span></div>
+        <div class="loc"><span class="loc__pin"><svg viewBox="0 0 24 33"><path d="M12 1 C6 1 1.5 5.5 1.5 11.5 C1.5 19.5 12 31.5 12 31.5 C12 31.5 22.5 19.5 22.5 11.5 C22.5 5.5 18 1 12 1 Z" fill="none" stroke="#D6AB7F" stroke-width="2.4"/><circle cx="12" cy="11.5" r="3.6" fill="#D6AB7F"/></svg></span><span class="loc__name">Donut Star</span><span class="loc__city">Draper</span></div>
+        <div class="loc"><span class="loc__pin"><svg viewBox="0 0 24 33"><path d="M12 1 C6 1 1.5 5.5 1.5 11.5 C1.5 19.5 12 31.5 12 31.5 C12 31.5 22.5 19.5 22.5 11.5 C22.5 5.5 18 1 12 1 Z" fill="none" stroke="#D6AB7F" stroke-width="2.4"/><circle cx="12" cy="11.5" r="3.6" fill="#D6AB7F"/></svg></span><span class="loc__name">Avenue Bakery</span><span class="loc__city">American Fork</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="cta">
+    <span>Scan the code or visit us at <b>www.RushlyMTC.com</b></span>
+  </div>
+</div></div>
+
+<script>
+  var id = new URLSearchParams(location.search).get('export');
+  if(id){
+    document.body.classList.add('export');
+    var el = document.getElementById('stage-'+id);
+    if(el) el.classList.add('show');
+  }
+</script>
+</body>
+</html>

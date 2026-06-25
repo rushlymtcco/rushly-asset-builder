@@ -162,7 +162,7 @@
   .hl:hover .hl__dl{opacity:1;background:rgba(45,66,91,.34)}
 
   /* ---- DOWNLOADS ---- */
-  .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
   @media(max-width:760px){.dl-grid{grid-template-columns:1fr}}
   .dl-card{background:var(--white);border-radius:18px;padding:28px 26px 26px;box-shadow:0 10px 30px rgba(45,66,91,.08);display:flex;flex-direction:column}
   .dl-card h4{font-family:'Montserrat';font-weight:900;font-size:17px;color:var(--navy)}
@@ -398,6 +398,12 @@
         <div class="meta">Rendered PNGs · all formats</div>
         <p>Every pre-rendered post — square, portrait, story, landscape, and the collab variants. Edit the HTML in this folder to customize.</p>
         <a class="dl-btn" href="downloads/rushly-post-templates.zip" download>Download ZIP</a>
+      </div>
+      <div class="dl-card">
+        <h4>Business card</h4>
+        <div class="meta">Front + back · 3.5×2in · editable HTML</div>
+        <p>Two-sided card — navy brand front, locations back. The QR area is left blank so you can drop in your own code. Add 0.125in bleed for print.</p>
+        <a class="dl-btn" href="downloads/rushly-business-card.zip" download>Download ZIP</a>
       </div>
     </div>
     <p class="dl-note">Individual files also live in <code>exports/</code> and <code>assets/</code>. Opening this guide from a local file? If a PNG opens in the browser instead of downloading, right-click → <em>Save image as…</em> — the ZIP buttons always download.</p>

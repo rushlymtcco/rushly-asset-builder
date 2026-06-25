@@ -21,5 +21,9 @@ zip -q -j -X downloads/rushly-logos.zip \
 rm -f downloads/rushly-post-templates.zip
 zip -q -j -X downloads/rushly-post-templates.zip exports/post-*.png
 
+# 4) Business card — editable HTML + both rendered sides (QR area left blank)
+rm -f downloads/rushly-business-card.zip
+zip -q -j -X downloads/rushly-business-card.zip card.html exports/card-front.png exports/card-back.png
+
 echo "Done:"
 ls -lh downloads/*.zip
