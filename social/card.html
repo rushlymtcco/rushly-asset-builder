@@ -53,6 +53,19 @@
   .front__rule{position:relative;z-index:2;margin-top:22px;width:62px;height:3px;border-radius:2px;
           background:linear-gradient(90deg,transparent,var(--tan),transparent)}
 
+  /* ---------- FRONT · cream variant ---------- */
+  .front.cream{background:radial-gradient(120% 120% at 50% 0%,#fbf8f3 0%,var(--cream) 58%,var(--cream2) 100%)}
+  .front.cream::before{background:radial-gradient(circle,rgba(214,171,127,.20),transparent 68%)}
+  .front.cream::after{background:radial-gradient(circle,rgba(45,66,91,.05),transparent 66%)}
+  .front.cream .front__ring{border-color:rgba(45,66,91,.05)}
+  .front.cream .front__ring::after{border-color:rgba(214,171,127,.16)}
+  .front.cream .plaque{background:var(--white);
+          box-shadow:0 22px 50px rgba(45,66,91,.16),0 2px 0 rgba(255,255,255,.8) inset}
+  .front.cream .front__tag{color:var(--navy)}
+  .front.cream .front__tag em{color:var(--tan)}
+  .front__frame{position:absolute;inset:24px;border:1px solid rgba(214,171,127,.32);
+          border-radius:14px;z-index:1;pointer-events:none}
+
   /* ---------- BACK · info ---------- */
   .back{background:var(--cream);padding:46px 50px 0;display:flex;flex-direction:column}
   .back::before{content:'';position:absolute;top:-22%;right:-10%;width:38%;aspect-ratio:1;border-radius:50%;
@@ -101,6 +114,15 @@
 
 <!-- ===================== FRONT ===================== -->
 <div class="stage" id="stage-front"><div class="card front">
+  <div class="front__ring"></div>
+  <div class="plaque"><img src="assets/rushly-logo.png" alt="Rushly"></div>
+  <div class="front__tag">Same&#8209;day delivery<br>to the <em>Provo&nbsp;MTC</em></div>
+  <div class="front__rule"></div>
+</div></div>
+
+<!-- ===================== FRONT · CREAM ===================== -->
+<div class="stage" id="stage-front-cream"><div class="card front cream">
+  <div class="front__frame"></div>
   <div class="front__ring"></div>
   <div class="plaque"><img src="assets/rushly-logo.png" alt="Rushly"></div>
   <div class="front__tag">Same&#8209;day delivery<br>to the <em>Provo&nbsp;MTC</em></div>
