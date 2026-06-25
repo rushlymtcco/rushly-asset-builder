@@ -66,6 +66,10 @@
   .front__frame{position:absolute;inset:24px;border:1px solid rgba(214,171,127,.32);
           border-radius:14px;z-index:1;pointer-events:none}
 
+  /* ---------- FRONT · no-plaque (logo direct) ---------- */
+  .logo-bare{position:relative;z-index:2;height:138px;display:block}
+  .front.cream .logo-bare{filter:drop-shadow(0 16px 30px rgba(45,66,91,.20))}
+
   /* ---------- BACK · info ---------- */
   .back{background:var(--cream);padding:46px 50px 0;display:flex;flex-direction:column}
   .back::before{content:'';position:absolute;top:-22%;right:-10%;width:38%;aspect-ratio:1;border-radius:50%;
@@ -120,11 +124,11 @@
   <div class="front__rule"></div>
 </div></div>
 
-<!-- ===================== FRONT · CREAM ===================== -->
+<!-- ===================== FRONT · CREAM (no plaque) ===================== -->
 <div class="stage" id="stage-front-cream"><div class="card front cream">
   <div class="front__frame"></div>
   <div class="front__ring"></div>
-  <div class="plaque"><img src="assets/rushly-logo.png" alt="Rushly"></div>
+  <img class="logo-bare" src="assets/rushly-logo.png" alt="Rushly">
   <div class="front__tag">Same&#8209;day delivery<br>to the <em>Provo&nbsp;MTC</em></div>
   <div class="front__rule"></div>
 </div></div>
