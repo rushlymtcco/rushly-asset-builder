@@ -195,6 +195,13 @@
   .ps-drop .big{font-family:'Montserrat';font-weight:800;font-size:17px;color:var(--navy)}
   .ps-drop .small{font-family:'Montserrat';font-weight:700;font-size:12px;color:var(--muted);margin-top:6px}
   .ps-drop input{display:none}
+  .ps-drop .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .ps-drop .btns button{font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;
+       border-radius:100px;padding:.7em 1.3em;cursor:pointer;transition:.2s var(--ease)}
+  .ps-drop .btns #psBtnFiles{background:var(--navy);color:var(--cream);border:1.5px solid var(--navy)}
+  .ps-drop .btns #psBtnFiles:hover{background:var(--tan);border-color:var(--tan);color:var(--navy)}
+  .ps-drop .btns #psBtnDir{background:var(--white);color:var(--navy);border:1.5px solid rgba(45,66,91,.25)}
+  .ps-drop .btns #psBtnDir:hover{border-color:var(--tan)}
   .ps-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:26px 0 34px}
   .ps-bar label{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
   .ps-bar select,.ps-bar button,.ps-post .row select,.ps-post .row button{
@@ -483,8 +490,12 @@
     </div>
 
     <div class="ps-drop" id="psDrop">
-      <div class="big">Click to choose a photo folder — or drag photos here</div>
+      <div class="big">Drag photos here — or choose below</div>
       <div class="small">JPG · PNG · WebP &nbsp;·&nbsp; each photo becomes an editable post below</div>
+      <div class="btns">
+        <button type="button" id="psBtnFiles">Choose photos…</button>
+        <button type="button" id="psBtnDir">Choose a whole folder…</button>
+      </div>
       <input type="file" id="psPickDir" webkitdirectory multiple>
       <input type="file" id="psPickFiles" accept="image/*" multiple>
     </div>
@@ -852,7 +863,11 @@ async function addFiles(files){
 const dropEl=document.getElementById('psDrop');
 const pickDir=document.getElementById('psPickDir');
 const pickFiles=document.getElementById('psPickFiles');
-dropEl.addEventListener('click',()=> (pickDir.showPicker? pickDir:pickFiles).click());
+/* clicking the zone (anywhere) picks files; the folder button opens the
+   directory picker, where the OS greys out files — that's expected there */
+dropEl.addEventListener('click',()=>pickFiles.click());
+document.getElementById('psBtnFiles').addEventListener('click',e=>{e.stopPropagation();pickFiles.click();});
+document.getElementById('psBtnDir').addEventListener('click',e=>{e.stopPropagation();pickDir.click();});
 pickDir.addEventListener('change',e=>addFiles(e.target.files));
 pickFiles.addEventListener('change',e=>addFiles(e.target.files));
 ['dragover','dragenter'].forEach(ev=>dropEl.addEventListener(ev,e=>{e.preventDefault();dropEl.classList.add('over');}));
